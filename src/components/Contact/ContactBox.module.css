@@ -1,0 +1,44 @@
+.contactContainer > .contactContainerIcon {
+    border-radius: 50px;
+    background-color: #0288d1;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactContainer > .contactContainerKey {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.contactContainer > .contactContainerValue {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px;
+}
+
+.iconColor {
+    color: white;
+    font-size: 36px;
+}
+
+.ContactTitle {
+    font-size: 48px;
+}
+
+.contactSocialContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.contactSocialContainer > .contactSocialContainerText {
+
+}
+
+.contactSocialContainer > .contactSocialContainerIcons {
+    display: flex;
+}

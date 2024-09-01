@@ -1,0 +1,23 @@
+.profileDetails {
+    display: tab;
+}
+
+.profileDetailContainer {
+    display: flex;
+    justify-content: space-between; /* Optional: Adds space between items */
+    margin: 10px;
+  }
+  
+  .skillBlock {
+    text-align: left;
+  }
+
+  .skillBlock > .skillBox {
+    margin: 20px 0px 20px;
+  }
+
+  .skillBlock > .skillBox > .skillBoxText {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
