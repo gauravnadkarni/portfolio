@@ -35,12 +35,7 @@ const Blog: React.FC = () => {
           <BlogCard />
         </GridItem>
       </Grid>
-      <Grid size={4}>
-        <GridItem>
-          <BlogCard />
-        </GridItem>
-      </Grid>
-      </Grid>
+    </Grid>
   );
 };
 

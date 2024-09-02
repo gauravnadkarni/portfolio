@@ -8,7 +8,7 @@ const Resume: React.FC = () => {
       <GridItem>
         <Box
           sx={{padding:"20px"}}>
-        <ResumeBox />
+        <ResumeBox path={'https://drive.google.com/file/d/1-3sO60ORZeoA1Knh9TWFFdNxR0qoD5mi/view?usp=drive_link'}/>
         </Box>
       </GridItem>
     </Grid>

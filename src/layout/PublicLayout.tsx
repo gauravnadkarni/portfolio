@@ -1,33 +1,96 @@
 import Grid from "@mui/material/Grid2";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
-import Header from "../components/Header";
+import HeaderMenu from "../components/header/HeaderMenu";
 import Footer from "../components/Footer";
-import GridItem from "../components/GridItem";
+import TypingSkills, { TypingSkillsProps } from "../components/TypingSkill";
+import { ScrollProvider, useScroll } from "../components/ScrollContext";
+import { useRef } from "react";
+import { Box, Fab, Fade, useScrollTrigger, Zoom } from "@mui/material";
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 interface LayoutProps {
+  window?: () => Window;
   children: React.ReactNode;
 }
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+function smoothScrollToTop() {
+  const scrollDuration = 1000; // Adjust this value for slower or faster scrolling
+  const scrollStep = -window.scrollY / (scrollDuration / 15);
+  let scrollInterval = setInterval(() => {
+    if (window.scrollY !== 0) {
+      window.scrollBy(0, scrollStep);
+    } else {
+      clearInterval(scrollInterval);
+    }
+  }, 15);
+}
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+
+function ScrollTop(props: LayoutProps) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+    disableHysteresis: true,
+    threshold: 100,
+  });
+
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const anchor = (
+      (event.target as HTMLDivElement).ownerDocument || document
+    ).querySelector('#back-to-top-anchor');
+
+    if (anchor) {
+      smoothScrollToTop();
+    }
+  };
+
   return (
-    <>
-      <div className="bg-cover bg-center h-screen"  style={{'backgroundImage': 'url("intro-bg.jpg")'}}>
+    <Zoom in={trigger}>
+      <Box
+        onClick={handleClick}
+        role="presentation"
+        sx={{ position: 'fixed', bottom: 16, right: 16 }}
+      >
+        {children}
+      </Box>
+    </Zoom>
+  );
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }, props) => {
+  const {
+    homeRef,
+    contactRef
+  } = useScroll();
+  
+  return (
+    <> 
+      <HeaderMenu />
+      <div
+        className="bg-cover bg-center h-screen"
+        style={{ backgroundImage: 'url("intro-bg.jpg")' }}
+        ref={homeRef}
+        id="back-to-top-anchor"
+      >
         <Container maxWidth="lg">
           <Grid container>
-            <Header />
-            <div className="flex justify-center items-center flex-col" style={{'height': '100vh', 'margin':'auto'}}>
-              <div className="text-7xl text-white font-semibold" style={{'marginBottom':'10px'}}>I am Gaurav Nadkarni</div>
-              <div className="text-2xl text-white font-extralight">#Full Stack Developer #Backend Developer</div>
+            <div
+              className="flex justify-center items-center flex-col"
+              style={{ height: "100vh", margin: "auto" }}
+            >
+              <div
+                className="text-7xl text-white font-semibold"
+                style={{ marginBottom: "10px" }}
+              >
+                I am Gaurav Nadkarni
+              </div>
+              <div className="text-2xl text-white font-extralight">
+                <TypingSkills
+                  speed={20}
+                  delay={2000}
+                  skills={["#Fullstack Developer", "#Beckend Developer"]}
+                />
+              </div>
             </div>
           </Grid>
         </Container>
@@ -37,7 +100,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           {children}
         </Grid>
       </Container>
-      <Footer />
+      <div ref={contactRef}>
+        <Footer />
+      </div>
+      <ScrollTop {...props}>
+        <Fab size="small" aria-label="scroll back to top">
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </ScrollTop>
     </>
   );
 };

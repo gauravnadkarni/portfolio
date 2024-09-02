@@ -8,11 +8,14 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import classes from "./HeaderMenu.module.css";
+import { useScroll } from "../ScrollContext";
+import classNames from "classnames";
 
 const pages = [
   "Home",
   "About",
+  "Skills",
   "Projects",
   "Work History",
   "Blog",
@@ -29,6 +32,36 @@ function Header() {
     null
   );
 
+  const [showStaticAppBar, setShowStaticAppBar] = React.useState<boolean>(true);
+
+  const { homeRef,aboutRef,blogRef,contactRef,projectsRef,resumeRef,skillsRef,workHistoryRef, scrollToSection } = useScroll();
+
+  const pagesObject = [{
+    name:"Home",
+    ref: homeRef
+  },{
+    name:"About",
+    ref: aboutRef
+  },{
+    name:"Skills",
+    ref: skillsRef
+  },{
+    name:"Projects",
+    ref: projectsRef
+  },{
+    name:"Work History",
+    ref: workHistoryRef
+  },{
+    name:"Resume",
+    ref: resumeRef
+  },{
+    name:"Blog",
+    ref: blogRef
+  },{
+    name:"Contact",
+    ref: contactRef
+  }];
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -44,12 +77,33 @@ function Header() {
     setAnchorElUser(null);
   };
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+        const position = window.scrollY || document.documentElement.scrollTop;
+        if(position>50) {
+          setShowStaticAppBar(false)
+        } else {
+          setShowStaticAppBar(true)
+        }
+    };
+
+    // Add event listener for scroll events
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <AppBar position="sticky" color="transparent" sx={{
-      boxShadow: 'none', }}>
+    <AppBar position="fixed" color="transparent" sx={{
+      boxShadow: 'none'}
+      }
+      classes={{root:classNames({[classes.staticAppBar]:showStaticAppBar, [classes.movingAppBar]:!showStaticAppBar})}}
+      >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -61,14 +115,12 @@ function Header() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "white",
               textDecoration: "none",
             }}
           >
-            LOGO
+            Portfolio
           </Typography>
 
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -81,11 +133,10 @@ function Header() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "white",
               textDecoration: "none",
             }}
           >
-            LOGO
+            Portfolio
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
 
@@ -118,18 +169,21 @@ function Header() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pagesObject.map((page) => (
+                <MenuItem key={page.name} onClick={() => {
+                  handleCloseNavMenu();
+                  scrollToSection(page.ref)
+                }}>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
             <ul className="flex flex-row">
-            {pages.map((page) => (
-                <li className="text-white font-semibold" style={{'margin':'0px 10px'}}>
-                  <a href="#">{page}</a>
+            {pagesObject.map((page) => (
+                <li className="font-semibold" style={{'margin':'0px 10px'}}>
+                  <a href="#" onClick={() => scrollToSection(page.ref)}>{page.name}</a>
                 </li>
             ))}
             </ul>

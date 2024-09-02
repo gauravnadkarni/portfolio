@@ -4,9 +4,26 @@
 
 .profileDetailContainer {
     display: flex;
-    justify-content: space-between; /* Optional: Adds space between items */
+    justify-content: flex-start; /* Optional: Adds space between items */
     margin: 10px;
   }
+
+.profileDetailContainer > .profileDetailbox:nth-child(1) {
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 1.1rem;
+}
+
+.profileDetailContainer > .profileDetailbox:nth-child(2) {
+  font-size: 1rem;
+  font-weight: 400;
+  display: flex;
+  align-items: flex-end;
+}
+
+.profileDetailbox {
+  margin: 0px 5px 0px;
+}
   
   .skillBlock {
     text-align: left;
@@ -20,4 +37,28 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
+  }
+
+  .aboutMeContainer {
+    text-align: left;
+  }
+
+  .aboutMeContainer > .aboutMeTitle {
+    font-size: 50px;
+    font-weight: 700;
+    padding: 0px 20px 0px;
+  }
+
+  .aboutMeContainer > .aboutMeContent {
+    padding: 0px 20px 0px;
+  }
+
+  .aboutMeContainer > .aboutMeContent > p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .skillHeading {
+    font-size: 1.1rem;
   }

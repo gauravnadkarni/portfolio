@@ -1,144 +1,112 @@
-import styles from './AboutBox.module.css';
+import classes from './AboutBox.module.css';
 import Grid from '@mui/material/Grid2';
 import { createTheme, styled, ThemeProvider } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import { Avatar, Box } from "@mui/material";
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import GridItem from '../GridItem';
 
+export interface AboutBoxProps {
+  name:string;
+  email:string;
+  profile:string;
+  phone:string;
+  image:{
+    src:string;
+    altText:string
+  };
+  skills:Array<{
+    name:string;
+    weightText:string;
+    weightAmount:number;
+  }>;
+}
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    ...theme.applyStyles('dark', {
-      backgroundColor: '#1A2027',
-    }),
-  }));
-  
-  const darkTheme = createTheme({ palette: { mode: 'dark' } });
-  const lightTheme = createTheme({ palette: { mode: 'light' } });
+const AboutBox: React.FC<AboutBoxProps> = (props) => {
+  const {
+    name,
+    email,
+    profile,
+    phone,
+    skills,
+    image: {
+      src:imageSrc,
+      altText:imageAltText,
+    }
+  } = props;
 
-const AboutBox: React.FC = () => {
   return (
     <Box
     >
-      {/*<Paper elevation={3}>
-        <div>
-          <div>
-            <div>
-              <div className="profilePic">
-                <Avatar alt="Gaurav Nadkarni" src="/static/images/avatar/1.jpg" />
-              </div>
-              <div className="profileDetails"></div>
-            </div>
-            <div>
-              <div className="skillHeader"></div>
-              <div className="skillDetails"></div>
-            </div>
-          </div>
-          <div>
-            <div className="detailsHader"></div>
-            <div className="detailedDescription"></div>
-          </div>
-        </div>
-      </Paper>*/}
       <Paper elevation={3}>
         <Grid container>
           <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
-            <Item>
+            <GridItem>
               <Grid container>
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
-                  <Item>
+                  <GridItem>
                     <Grid container>
                       <Grid size={{ xs: 12, sm: 12, md: 4, lg: 4, xl: 4 }}>
-                        <Item><Avatar alt="Gaurav Nadkarni" src="/static/images/avatar/1.jpg" variant="rounded" sx={{ width: '100%', height: '8vw' }}/></Item>
+                        <GridItem><Avatar alt={imageAltText} src={imageSrc} variant="rounded" sx={{ width: '100%', height: '8vw' }}/></GridItem>
                       </Grid>
                       <Grid size={{ xs: 12, sm: 12, md: 8, lg: 8, xl: 8 }}>
-                        <Item>
+                        <GridItem>
                           <div>
-                            <div className={styles.profileDetailContainer}>
-                              <div className={styles.profileDetailbox}>Name:</div><div className={styles.profileDetailbox}>Gaurav Nadkarni</div>
+                            <div className={classes.profileDetailContainer}>
+                              <div className={classes.profileDetailbox}>Name:</div><div className={classes.profileDetailbox}>{name}</div>
                             </div>
-                            <div className={styles.profileDetailContainer}>
-                              <div className={styles.profileDetailbox}>Name:</div><div className={styles.profileDetailbox}>Gaurav Nadkarni</div>
+                            <div className={classes.profileDetailContainer}>
+                              <div className={classes.profileDetailbox}>Profile:</div><div className={classes.profileDetailbox}>{profile}</div>
                             </div>
-                            <div className={styles.profileDetailContainer}>
-                              <div className={styles.profileDetailbox}>Name:</div><div className={styles.profileDetailbox}>Gaurav Nadkarni</div>
+                            <div className={classes.profileDetailContainer}>
+                              <div className={classes.profileDetailbox}>Email:</div><div className={classes.profileDetailbox}>{email}</div>
                             </div>
-                            <div className={styles.profileDetailContainer}>
-                              <div className={styles.profileDetailbox}>Name:</div><div className={styles.profileDetailbox}>Gaurav Nadkarni</div>
+                            <div className={classes.profileDetailContainer}>
+                              <div className={classes.profileDetailbox}>Phone:</div><div className={classes.profileDetailbox}>{phone}</div>
                             </div>
                           </div>
-                        </Item>
+                        </GridItem>
                       </Grid>
                     </Grid>
-                  </Item>
+                  </GridItem>
                 </Grid>
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
-                  <Item>
-                    <div className={styles.skillBlock}>
-                      <div className={styles.skillHeading}>Skill</div>
-                      <div className={styles.skillBox}>
-                        <div className={styles.skillBoxText}>
-                          <div className={styles.skillBoxLeft}>HTML</div>
-                          <div className={styles.skillBoxRight}>80%</div>
+                  <GridItem>
+                    <div className={classes.skillBlock}>
+                      <div className={classes.skillHeading}>Skills</div>
+                      {skills.map((skill,idx)=>(<div className={classes.skillBox} key={idx}>
+                        <div className={classes.skillBoxText}>
+                          <div className={classes.skillBoxLeft}>{skill.name}</div>
+                          <div className={classes.skillBoxRight}>{skill.weightText}</div>
                         </div>
-                        <LinearProgress variant="determinate" value={50} sx={{height:'10px'}}/>
-                      </div>
-                      <div className={styles.skillBox}>
-                        <div className={styles.skillBoxText}>
-                          <div className={styles.skillBoxLeft}>HTML</div>
-                          <div className={styles.skillBoxRight}>80%</div>
-                        </div>
-                        <LinearProgress variant="determinate" value={50} sx={{height:'10px'}} />
-                      </div>
-                      <div className={styles.skillBox}>
-                        <div className={styles.skillBoxText}>
-                          <div className={styles.skillBoxLeft}>HTML</div>
-                          <div className={styles.skillBoxRight}>80%</div>
-                        </div>
-                        <LinearProgress variant="determinate" value={50} sx={{height:'10px'}} />
-                      </div>
-                      <div className={styles.skillBox}>
-                        <div className={styles.skillBoxText}>
-                          <div className={styles.skillBoxLeft}>HTML</div>
-                          <div className={styles.skillBoxRight}>80%</div>
-                        </div>
-                        <LinearProgress variant="determinate" value={50} sx={{height:'10px'}} />
-                      </div>
-                      <div className={styles.skillBox}>
-                        <div className={styles.skillBoxText}>
-                          <div className={styles.skillBoxLeft}>HTML</div>
-                          <div className={styles.skillBoxRight}>80%</div>
-                        </div>
-                        <LinearProgress variant="determinate" value={50} sx={{height:'10px'}} />
-                      </div>
+                        <LinearProgress variant="determinate" value={skill.weightAmount} sx={{height:'10px'}}/>
+                      </div>))}
                     </div>
-                  </Item>
+                  </GridItem>
                 </Grid>
               </Grid>
-            </Item>
+            </GridItem>
           </Grid>
           <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
-            <Item>
+            <GridItem>
               <Grid container>
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
-                  <div>
-                    <div>
+                  <div className={classes.aboutMeContainer}>
+                    <div className={classes.aboutMeTitle}>
                       About me
                     </div>
-                    <div>
-                      <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla porttitor accumsan tincidunt.</p>
-                      <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. porttitor at sem.</p>
-                      <p>Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                    <div className={classes.aboutMeContent}>
+                      <p>With over a decade of experience in software development, I have honed my skills across various technology stacks. My expertise lies in full-stack development, with a particular focus on backend-heavy solutions. Throughout my career, I have consistently delivered high-quality products to customers, ensuring that their needs are met with precision and care.</p>
+
+                      <p>In addition to full-stack development, I have experience working with databases, cloud technologies, and real-time systems, all while managing to meet tight deadlines. My ability to adapt to different roles has been a key asset—I’ve thrived as a collaborator, a lone contributor, and a team leader. These experiences have provided me with unique perspectives on the software development process, allowing me to approach challenges from multiple standpoints.</p>
+
+                      <p>I am confident in my ability to apply the lessons I’ve learned over the years to carry out my responsibilities efficiently and deliver quality results. As I look to the future, I am excited to apply my expertise to solving new problems and making a positive impact in the world.</p>
                     </div>
                   </div>
                 </Grid>
               </Grid>
-            </Item>
+            </GridItem>
           </Grid>
         </Grid>
       </Paper>

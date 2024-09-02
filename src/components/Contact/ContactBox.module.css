@@ -16,18 +16,35 @@
 }
 
 .contactContainer > .contactContainerValue {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     margin: 10px;
 }
 
-.iconColor {
+.socialIcon {
     color: white;
-    font-size: 36px;
+    font-size: 30px;
+}
+
+.addressIcon  {
+    color: white;
+    font-size: 40px !important;
 }
 
 .ContactTitle {
-    font-size: 48px;
+    font-size: 50px;
+    font-weight: 700;
+    position: relative;
+}
+
+.ContactTitle > .ContactTitleBackground {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    font-size: 7vw;
+    color: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+    font-weight: 900;
 }
 
 .contactSocialContainer {
@@ -36,9 +53,23 @@
 }
 
 .contactSocialContainer > .contactSocialContainerText {
-
+    padding: 0px 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contactSocialContainer > .contactSocialContainerIcons {
     display: flex;
+}
+
+.contactSocialContainer > .contactSocialContainerIcons >  .contactSocialContainerIcon{
+    border-radius: 25px;
+    background-color: #0288d1;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

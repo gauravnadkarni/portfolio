@@ -35,11 +35,6 @@ const Projects: React.FC = () => {
           <ProjectCard />
         </GridItem>
       </Grid>
-      <Grid size={4}>
-        <GridItem>
-          <ProjectCard />
-        </GridItem>
-      </Grid>
       </Grid>
   );
 };

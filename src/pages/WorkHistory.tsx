@@ -19,6 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const DATA:Array<WorkHistoryBoxProps> = [
     {
+      key:"1",
       type:"Work",
       oppText: "2023",
       mainText: "Fena.co",
@@ -35,6 +36,7 @@ const DATA:Array<WorkHistoryBoxProps> = [
       tooltipPlacement: "left",
     },
     {
+      key:"2",
       type:"Certification",
       oppText: "2020",
       mainText: "ACP-600 & ACP-620",
@@ -51,6 +53,7 @@ const DATA:Array<WorkHistoryBoxProps> = [
       tooltipPlacement: "right",
     },
     {
+      key:"3",
       type:"Work",
       oppText: "2019",
       mainText: "Empyra Software Solutions",
@@ -67,6 +70,7 @@ const DATA:Array<WorkHistoryBoxProps> = [
       tooltipPlacement: "left",
     },
     {
+      key:"4",
       type:"Work",
       oppText: "2019",
       mainText: "Rakutan India Pvt Ltd",
@@ -83,6 +87,7 @@ const DATA:Array<WorkHistoryBoxProps> = [
       tooltipPlacement: "right",
     },
     {
+      key:"5",
       type:"Work",
       oppText: "2018",
       mainText: "Sourcebits Pvt Ltd",
@@ -99,6 +104,7 @@ const DATA:Array<WorkHistoryBoxProps> = [
       tooltipPlacement: "left",
     },
     {
+      key:"6",
       type:"Work",
       oppText: "2014",
       mainText: "Nalashaa Solutions Pvt Ltd",
@@ -115,6 +121,7 @@ const DATA:Array<WorkHistoryBoxProps> = [
       tooltipPlacement: "right",
     },
     {
+      key:"7",
       type:"Work",
       oppText: "2012",
       mainText: "Stridus Infotech Pvt ltd",
@@ -131,6 +138,7 @@ const DATA:Array<WorkHistoryBoxProps> = [
       tooltipPlacement: "left",
     },
     {
+      key:"8",
       type:"Certification",
       oppText: "2011",
       mainText: "OCJP 1.6",
@@ -147,6 +155,7 @@ const DATA:Array<WorkHistoryBoxProps> = [
       tooltipPlacement: "right",
     },
     {
+      key:"9",
       type:"Study",
       oppText: "2011",
       mainText: "Programing Courses",
@@ -163,6 +172,7 @@ const DATA:Array<WorkHistoryBoxProps> = [
       tooltipPlacement: "left",
     },
     {
+      key:"10",
       type:"Work",
       oppText: "2010",
       mainText: "Nanu Engineers Pvt Ltd (India)",
@@ -179,6 +189,7 @@ const DATA:Array<WorkHistoryBoxProps> = [
       tooltipPlacement: "right",
     },
     {
+      key:"11",
       type:"Study",
       oppText: "2008",
       mainText: "Bachelor of Engineering(IT)",

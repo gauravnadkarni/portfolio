@@ -14,6 +14,7 @@ import { Fade, Tooltip, tooltipClasses, TooltipProps } from "@mui/material";
 import styled from "@emotion/styled";
 
 export interface WorkHistoryBoxProps {
+  key:string;
   type: "Work" | "Certification" | "Study";
   oppText: string;
   mainText: string;

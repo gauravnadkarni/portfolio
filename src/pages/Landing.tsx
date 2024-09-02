@@ -1,6 +1,6 @@
 import PublicLayout from "../layout/PublicLayout";
-import {Grid2 as Grid} from "@mui/material";
-import Home from "./Home";
+import { Grid2 as Grid } from "@mui/material";
+import Skills from "./Skills";
 import Projects from "./Projects";
 import WorkHistory from "./WorkHistory";
 import About from "./About";
@@ -8,8 +8,9 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Blog from "./Blog";
 import Resume from "./Resume";
-import Contact from "./Contact";
-import GridItem from "../components/GridItem"
+import GridItem from "../components/GridItem";
+import { useRef } from "react";
+import { useScroll } from "../components/ScrollContext";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,41 +21,57 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const Landing: React.FC = () => {
+  const {
+    aboutRef,
+    skillsRef,
+    blogRef,
+    projectsRef,
+    resumeRef,
+    workHistoryRef,
+  } = useScroll();
+
   return (
     <PublicLayout>
       <Grid size={12}>
         <GridItem>
-          <Home />
+          <div ref={aboutRef}>
+            <About />
+          </div>
         </GridItem>
       </Grid>
       <Grid size={12}>
         <GridItem>
-          <About />
+          <div ref={skillsRef}>
+            <Skills />
+          </div>
         </GridItem>
       </Grid>
       <Grid size={12}>
         <GridItem>
-          <Projects />
+          <div ref={projectsRef}>
+            <Projects />
+          </div>
         </GridItem>
       </Grid>
       <Grid size={12}>
         <GridItem>
-          <WorkHistory />
+          <div ref={workHistoryRef}>
+            <WorkHistory />
+          </div>
         </GridItem>
       </Grid>
       <Grid size={12}>
         <GridItem>
-          <Resume />
+          <div ref={resumeRef}>
+            <Resume />
+          </div>
         </GridItem>
       </Grid>
       <Grid size={12}>
         <GridItem>
-          <Blog />
-        </GridItem>
-      </Grid>
-      <Grid size={12}>
-        <GridItem>
-          <Contact />
+          <div ref={blogRef}>
+            <Blog />
+          </div>
         </GridItem>
       </Grid>
     </PublicLayout>
