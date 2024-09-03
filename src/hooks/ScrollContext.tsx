@@ -14,11 +14,12 @@ interface ScrollContextType {
 
 export const ScrollContext = createContext<ScrollContextType | undefined>(undefined);
 
-export default () => {
+const useHook = () => {
   const context = useContext(ScrollContext);
   if (!context) {
     throw new Error("useScroll must be used within a ScrollProvider");
   }
   return context;
-};
+}
 
+export default useHook;

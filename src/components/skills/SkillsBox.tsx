@@ -1,6 +1,5 @@
+import { Chip } from "@mui/material";
 import * as React from "react";
-import styled from "@emotion/styled";
-import { Chip, Tooltip, tooltipClasses, TooltipProps } from "@mui/material";
 import classes from "./SkillsBox.module.css";
 
 export interface SkillsBoxProps {

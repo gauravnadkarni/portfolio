@@ -27,10 +27,12 @@ interface DataContextType {
 
 export const DataContext = createContext<DataContextType | undefined>(undefined);
 
-export default () => {
+const useHook = () => {
   const context = useContext(DataContext);
   if (!context) {
     throw new Error("dataContext must be used within a DataProvider");
   }
   return context;
-};
+}
+
+export default useHook;
