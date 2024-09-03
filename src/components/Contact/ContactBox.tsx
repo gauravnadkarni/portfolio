@@ -1,13 +1,7 @@
-import classes from './ContactBox.module.css';
-import { PropsWithChildren } from "react";
-import PlaceIcon from '@mui/icons-material/Place';
-import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
-import EmailIcon from '@mui/icons-material/Email';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import { Box, Button, Grid2 as Grid , Link } from "@mui/material";
-import GridItem from '../GridItem';
 import { SvgIconComponent } from '@mui/icons-material';
+import { Grid2 as Grid } from "@mui/material";
+import GridItem from '../GridItem';
+import classes from './ContactBox.module.css';
 
 export type ContactBoxProps = {
   physicalAddresses: Array<{
@@ -59,7 +53,7 @@ const ContactBox: React.FC<ContactBoxPropsWithIcons> = ({ socialLinks, physicalA
               <div className={classes.contactSocialContainerIcons}>
                 {socialLinks.map((socialLink)=>(
                   <div className={classes.contactSocialContainerIcon}>
-                    <a target='_blank' href={socialLink.link}>
+                    <a target='_blank' href={socialLink.link} rel="noreferrer">
                       <socialLink.icon classes={{root:classes.socialIcon}}/>
                     </a>
                   </div>

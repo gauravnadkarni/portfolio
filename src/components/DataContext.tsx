@@ -1,10 +1,8 @@
-import React, { createContext, useContext, useRef } from "react";
-import { ScrollContext } from "../hooks/ScrollContext";
+import React from "react";
 import { DataContext } from "../hooks/DataContext";
 import { AboutBoxProps } from "./about/AboutBox";
 import { ResumeBoxProps } from "./Resume/ResumeBox";
 import { SkillsBoxProps } from "./skills/SkillsBox";
-import { WorkHistoryBoxProps } from "./work-history/WorkHistoryBox";
 import { WorkHistoryBoxesProps } from "./work-history/WorkHistoryBoxes";
 import { ContactBoxProps } from "./Contact/ContactBox";
 import { ProjectCardProps } from "./projects/ProjectCard";
@@ -29,7 +27,7 @@ interface DataProviderProps {
   children: React.ReactNode;
 }
 
-export const DataProvider: React.FC<DataProviderProps> = ({
+const DataProvider: React.FC<DataProviderProps> = ({
   aboutBoxProps,
   resumeBoxProps,
   skillsBoxProps,
@@ -56,3 +54,5 @@ export const DataProvider: React.FC<DataProviderProps> = ({
     </DataContext.Provider>
   );
 };
+
+export default DataProvider;

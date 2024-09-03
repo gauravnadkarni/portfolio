@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Landing from "./pages/Landing";
 import { useRef } from "react";
-import { ScrollProvider } from "./components/ScrollContext";
-import { DataProvider } from "./components/DataContext";
-import DATA from "./data/data.json";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import DataProvider from "./components/DataContext";
+import ScrollProvider from "./components/ScrollContext";
 import { SkillsBoxProps } from "./components/skills/SkillsBox";
 import { WorkHistoryBoxesProps } from "./components/work-history/WorkHistoryBoxes";
+import DATA from "./data/data.json";
+import Landing from "./pages/Landing";
 
 const App: React.FC = () => {
   const homeRef = useRef<HTMLDivElement>(null);

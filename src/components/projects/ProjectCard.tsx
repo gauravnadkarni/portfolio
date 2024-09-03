@@ -1,6 +1,6 @@
 import { SvgIconComponent } from '@mui/icons-material';
+import { Card, CardActions, CardContent, CardMedia, Chip, IconButton, Typography } from "@mui/material";
 import classes from './ProjectCard.module.css';
-import { Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, IconButton, Typography } from "@mui/material";
 
 export type ProjectCardProps = {
   image:string;

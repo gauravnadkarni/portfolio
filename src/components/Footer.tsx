@@ -1,9 +1,8 @@
-import { Container, Typography, Box, Grid2 as Grid } from '@mui/material';
-import GridItem from './GridItem';
-import ContactBox, { ContactBoxPropsWithIcons } from './Contact/ContactBox';
-import useDataContext from "../hooks/DataContext";
+import { Box, Grid2 as Grid } from '@mui/material';
 import ICON_MAP from "../helpers/icon-map";
-import { SvgIconComponent } from '@mui/icons-material';
+import useDataContext from "../hooks/DataContext";
+import ContactBox, { ContactBoxPropsWithIcons } from './Contact/ContactBox';
+import GridItem from './GridItem';
 
 const Footer: React.FC = () => {
   const {contactBoxProps} = useDataContext();

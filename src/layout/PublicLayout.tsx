@@ -1,12 +1,12 @@
-import Grid from "@mui/material/Grid2";
-import Container from "@mui/material/Container";
-import HeaderMenu from "../components/header/HeaderMenu";
-import Footer from "../components/Footer";
-import TypingSkills, { TypingSkillsProps } from "../components/TypingSkill";
-import useScrollContext from "../hooks/ScrollContext";
-import useDataContext from "../hooks/DataContext";
-import { Box, Fab, Fade, useScrollTrigger, Zoom } from "@mui/material";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { Box, Fab, useScrollTrigger, Zoom } from "@mui/material";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid2";
+import Footer from "../components/Footer";
+import HeaderMenu from "../components/header/HeaderMenu";
+import TypingSkills from "../components/TypingSkill";
+import useDataContext from "../hooks/DataContext";
+import useScrollContext from "../hooks/ScrollContext";
 
 interface LayoutProps {
   window?: () => Window;

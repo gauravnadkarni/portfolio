@@ -1,10 +1,10 @@
-import * as React from "react";
-import Timeline from "@mui/lab/Timeline";
-import WorkHistoryBox, { WorkHistoryBoxProps, WorkHistoryBoxPropsWithIcons } from "./WorkHistoryBox";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import SchoolIcon from "@mui/icons-material/School";
 import WorkIcon from "@mui/icons-material/Work";
-import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
-import MenuBookIcon from "@mui/icons-material/MenuBook";
+import Timeline from "@mui/lab/Timeline";
+import * as React from "react";
+import WorkHistoryBox, { WorkHistoryBoxProps, WorkHistoryBoxPropsWithIcons } from "./WorkHistoryBox";
 
 export interface WorkHistoryBoxesProps {
   workItems: Array<WorkHistoryBoxProps>

@@ -1,4 +1,4 @@
-import { Box, Grid2 as Grid, Paper } from "@mui/material";
+import { Box, Grid2 as Grid } from "@mui/material";
 import GridItem from "../components/GridItem";
 import ResumeBox from "../components/Resume/ResumeBox";
 import useDataContext from "../hooks/DataContext";

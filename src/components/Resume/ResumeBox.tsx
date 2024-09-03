@@ -1,5 +1,3 @@
-import classes from "./ResumeBox.module.css";
-import { PropsWithChildren } from "react";
 import DownloadIcon from "@mui/icons-material/Download";
 import { Box, Button, Link } from "@mui/material";
 

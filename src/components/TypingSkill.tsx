@@ -1,4 +1,3 @@
-import { PropsWithChildren } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
 export interface TypingSkillsProps {

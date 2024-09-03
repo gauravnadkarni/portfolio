@@ -1,6 +1,5 @@
+import { Grid2 as Grid } from "@mui/material";
 import AboutBox from "../components/about/AboutBox";
-import Layout from "../layout/PublicLayout";
-import { Grid2 as Grid, Typography, Button } from "@mui/material";
 import GridItem from "../components/GridItem";
 import useDataContext from "../hooks/DataContext";
 

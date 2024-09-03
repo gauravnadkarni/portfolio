@@ -1,17 +1,17 @@
-import * as React from "react";
+import styled from "@emotion/styled";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import SchoolIcon from "@mui/icons-material/School";
 import WorkIcon from "@mui/icons-material/Work";
-import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
-import MenuBookIcon from "@mui/icons-material/MenuBook";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
-import Typography from "@mui/material/Typography";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import { Fade, Tooltip, tooltipClasses, TooltipProps } from "@mui/material";
-import styled from "@emotion/styled";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 
 export type WorkHistoryBoxProps = {
   type: "Work" | "Certification" | "Study" | "Course";

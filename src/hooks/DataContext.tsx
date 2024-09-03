@@ -1,10 +1,10 @@
-import React, { createContext, useContext, useRef } from 'react';
+import { createContext, useContext } from 'react';
 import { AboutBoxProps } from '../components/about/AboutBox';
+import { ContactBoxProps } from '../components/Contact/ContactBox';
+import { ProjectCardProps } from '../components/projects/ProjectCard';
 import { ResumeBoxProps } from '../components/Resume/ResumeBox';
 import { SkillsBoxProps } from '../components/skills/SkillsBox';
 import { WorkHistoryBoxesProps } from '../components/work-history/WorkHistoryBoxes';
-import { ContactBoxProps } from '../components/Contact/ContactBox';
-import { ProjectCardProps } from '../components/projects/ProjectCard';
 
 interface DataContextType {
   aboutBoxProps:AboutBoxProps;

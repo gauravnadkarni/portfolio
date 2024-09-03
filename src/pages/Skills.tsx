@@ -1,6 +1,6 @@
 import {
-  Grid2 as Grid,
   Box,
+  Grid2 as Grid,
 } from "@mui/material";
 import GridItem from "../components/GridItem";
 import SkillsBox from "../components/skills/SkillsBox";

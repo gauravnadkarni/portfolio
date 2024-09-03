@@ -1,11 +1,9 @@
-import classes from './AboutBox.module.css';
-import Grid from '@mui/material/Grid2';
-import { createTheme, styled, ThemeProvider } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
-import Container from "@mui/material/Container";
 import { Avatar, Box } from "@mui/material";
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import Grid from '@mui/material/Grid2';
+import LinearProgress from '@mui/material/LinearProgress';
+import Paper from "@mui/material/Paper";
 import GridItem from '../GridItem';
+import classes from './AboutBox.module.css';
 
 export interface AboutBoxProps {
   name:string;

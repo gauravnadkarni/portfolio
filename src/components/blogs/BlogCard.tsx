@@ -1,8 +1,7 @@
-import classes from './BlogCard.module.css';
-import { PropsWithChildren } from "react";
-import classnames from "classnames";
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import StorageIcon from '@mui/icons-material/Storage';
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import { PropsWithChildren } from "react";
+import classes from './BlogCard.module.css';
 
 const Image: React.FC<PropsWithChildren> = () => (
   <div style={{padding:'20px'}}>
