@@ -3,8 +3,8 @@ import Container from "@mui/material/Container";
 import HeaderMenu from "../components/header/HeaderMenu";
 import Footer from "../components/Footer";
 import TypingSkills, { TypingSkillsProps } from "../components/TypingSkill";
-import { ScrollProvider, useScroll } from "../components/ScrollContext";
-import { useRef } from "react";
+import useScrollContext from "../hooks/ScrollContext";
+import useDataContext from "../hooks/DataContext";
 import { Box, Fab, Fade, useScrollTrigger, Zoom } from "@mui/material";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
@@ -14,7 +14,7 @@ interface LayoutProps {
 }
 
 function smoothScrollToTop() {
-  const scrollDuration = 1000; // Adjust this value for slower or faster scrolling
+  const scrollDuration = 500;
   const scrollStep = -window.scrollY / (scrollDuration / 15);
   let scrollInterval = setInterval(() => {
     if (window.scrollY !== 0) {
@@ -61,12 +61,17 @@ const Layout: React.FC<LayoutProps> = ({ children }, props) => {
   const {
     homeRef,
     contactRef
-  } = useScroll();
+  } = useScrollContext();
+
+  const { featureSwitches: {
+    home: homeFeatureEnabled,
+    footer: footerFeatureEnabled,
+  } } = useDataContext();
   
   return (
     <> 
       <HeaderMenu />
-      <div
+      { homeFeatureEnabled && <div
         className="bg-cover bg-center h-screen"
         style={{ backgroundImage: 'url("intro-bg.jpg")' }}
         ref={homeRef}
@@ -94,15 +99,15 @@ const Layout: React.FC<LayoutProps> = ({ children }, props) => {
             </div>
           </Grid>
         </Container>
-      </div>
+      </div>}
       <Container maxWidth="lg">
         <Grid container spacing={4} style={{ marginTop: "2rem" }}>
           {children}
         </Grid>
       </Container>
-      <div ref={contactRef}>
+      {footerFeatureEnabled && <div ref={contactRef}>
         <Footer />
-      </div>
+      </div>}
       <ScrollTop {...props}>
         <Fab size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />

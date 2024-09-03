@@ -10,7 +10,8 @@ import Blog from "./Blog";
 import Resume from "./Resume";
 import GridItem from "../components/GridItem";
 import { useRef } from "react";
-import { useScroll } from "../components/ScrollContext";
+import useScrollContext from "../hooks/ScrollContext";
+import useDataContext from "../hooks/DataContext";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -28,52 +29,61 @@ const Landing: React.FC = () => {
     projectsRef,
     resumeRef,
     workHistoryRef,
-  } = useScroll();
+  } = useScrollContext();
+
+  const { featureSwitches: {
+    about: aboutFeatureEnabled,
+    resume: resumeFeatureEnabled,
+    skill: skillFeatureEnabled,
+    workHistory: workItemFeatureEnabled,
+    projects: projectsFeaturEnabled,
+    blogs: blogsFeaturEnabled,
+  } } = useDataContext();
 
   return (
     <PublicLayout>
-      <Grid size={12}>
+      {aboutFeatureEnabled && <Grid size={12}>
         <GridItem>
-          <div ref={aboutRef}>
+          <div ref={aboutRef} className="scrollOffset">
             <About />
           </div>
         </GridItem>
-      </Grid>
-      <Grid size={12}>
+      </Grid>}
+      {skillFeatureEnabled && <Grid size={12}>
         <GridItem>
-          <div ref={skillsRef}>
+          <div ref={skillsRef} className="scrollOffset">
             <Skills />
           </div>
         </GridItem>
-      </Grid>
-      <Grid size={12}>
+      </Grid>}
+      {projectsFeaturEnabled && <Grid size={12}>
         <GridItem>
-          <div ref={projectsRef}>
+          <div ref={projectsRef} className="scrollOffset">
             <Projects />
           </div>
         </GridItem>
-      </Grid>
-      <Grid size={12}>
+      </Grid>}
+      {workItemFeatureEnabled && <Grid size={12}>
         <GridItem>
-          <div ref={workHistoryRef}>
+          <div ref={workHistoryRef} className="scrollOffset">
             <WorkHistory />
           </div>
         </GridItem>
-      </Grid>
-      <Grid size={12}>
+      </Grid>}
+      {resumeFeatureEnabled && <Grid size={12}>
         <GridItem>
-          <div ref={resumeRef}>
+          <div ref={resumeRef} className="scrollOffset">
             <Resume />
           </div>
         </GridItem>
-      </Grid>
-      <Grid size={12}>
+      </Grid>}
+      {blogsFeaturEnabled && <Grid size={12}>
         <GridItem>
-          <div ref={blogRef}>
+          <div ref={blogRef} className="scrollOffset">
             <Blog />
           </div>
         </GridItem>
-      </Grid>
+      </Grid>}
     </PublicLayout>
   );
 };

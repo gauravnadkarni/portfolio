@@ -8,4 +8,9 @@
     transition: all .5s ease-in-out !important;
     background-color: white !important;
     color: #0288d1 !important;
+    box-shadow: 10px !important;
+}
+
+.link {
+    cursor: pointer;
 }

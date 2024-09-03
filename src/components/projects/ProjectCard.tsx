@@ -1,37 +1,65 @@
+import { SvgIconComponent } from '@mui/icons-material';
 import classes from './ProjectCard.module.css';
-import { PropsWithChildren } from "react";
-import classnames from "classnames";
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
-import StorageIcon from '@mui/icons-material/Storage';
+import { Card, CardActionArea, CardActions, CardContent, CardMedia, Chip, IconButton, Typography } from "@mui/material";
 
-const Image: React.FC<PropsWithChildren> = () => (
-  <div style={{padding:'20px'}}>
-    <div className={classes.imageBox}>
-      <div>
-        <StorageIcon color='primary' style={{fontSize: '45px'}}/>
-      </div>
-    </div>
-  </div>
-)
+export type ProjectCardProps = {
+  image:string;
+  title:string;
+  description:string;
+  tech:Array<{
+    link:string;
+    name:string;
+  }>;
+  links:Array<{
+    link:string;
+    iconText:string;
+  }>;
+}
 
-const ProjectCard: React.FC<PropsWithChildren> = ({ children }) => {
+export type ProjectCardPropsWithIcons = {
+  links:Array<{
+    link:string;
+    icon:SvgIconComponent;
+  }>;
+} & Omit<ProjectCardProps,"links">;
+
+const ProjectCard: React.FC<ProjectCardPropsWithIcons> = (props) => {
+  const {
+    image,
+    title,
+    description,
+    tech,
+    links,
+  } = props;
   return (
     <Card>
-      <CardActionArea>
-        <CardMedia
-          sx={{'padding':'20px'}}
-          component={Image}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Lizard
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+      <CardMedia
+        component="img"
+        height="140"
+        image={image || "/assets/images/project-placeholder.png"}
+        alt={title}
+        classes={{img:classes.imageMedia}}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          {description}
+        </Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary', padding:'5px'}}>
+          {tech && tech.map((techObj)=>(<Chip style={{margin:'5px'}} color='primary' label={techObj.name} component="a" clickable target='_blank' href={techObj.link}/>))}
+        </Typography>
+      </CardContent>
+      <CardActions disableSpacing>
+        {links && links.map((link)=>(
+          <IconButton>
+            <link.icon style={{ cursor: 'pointer' }} onClick={()=>{
+              window.open(link.link, '_blank', 'noopener,noreferrer');
+            }}/>
+          </IconButton>
+        ))}
+      </CardActions>
     </Card>
   );
 };

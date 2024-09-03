@@ -1,8 +1,23 @@
 import { Container, Typography, Box, Grid2 as Grid } from '@mui/material';
 import GridItem from './GridItem';
-import ContactBox from './Contact/ContactBox';
+import ContactBox, { ContactBoxPropsWithIcons } from './Contact/ContactBox';
+import useDataContext from "../hooks/DataContext";
+import ICON_MAP from "../helpers/icon-map";
+import { SvgIconComponent } from '@mui/icons-material';
 
 const Footer: React.FC = () => {
+  const {contactBoxProps} = useDataContext();
+  const contactBoxPropsWithIcons:ContactBoxPropsWithIcons = {
+    physicalAddresses: contactBoxProps.physicalAddresses.map((address)=>({
+      ...address,
+      icon: ICON_MAP[address.icon]
+    })),
+    socialLinks: contactBoxProps.socialLinks.map((social)=>({
+      ...social,
+      icon: ICON_MAP[social.icon]
+    }))
+  }
+
   return (
     <Box sx={{ py: 4, mt: 'auto', backgroundImage:"url('overlay-bg.jpg')", position:'relative', marginTop: "50px" }}>
       <div style={{
@@ -20,7 +35,7 @@ const Footer: React.FC = () => {
         <Grid container spacing={2}>
           <Grid size={12}>
             <GridItem>
-              <ContactBox />
+              <ContactBox {...contactBoxPropsWithIcons}/>
             </GridItem>
           </Grid>
         </Grid>

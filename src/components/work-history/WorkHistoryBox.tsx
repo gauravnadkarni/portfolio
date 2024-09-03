@@ -13,22 +13,25 @@ import Typography from "@mui/material/Typography";
 import { Fade, Tooltip, tooltipClasses, TooltipProps } from "@mui/material";
 import styled from "@emotion/styled";
 
-export interface WorkHistoryBoxProps {
-  key:string;
-  type: "Work" | "Certification" | "Study";
+export type WorkHistoryBoxProps = {
+  type: "Work" | "Certification" | "Study" | "Course";
   oppText: string;
   mainText: string;
   subText: string;
   smallText: string;
+  dotColor: "primary" | "info";
+  dotTooltipText: string;
+  tooltipPlacement: "left" | "right";
+}
+export type WorkHistoryBoxPropsWithIcons  = {
   dotIcon:
     | React.ReactElement<React.ComponentProps<typeof WorkIcon>>
     | React.ReactElement<React.ComponentProps<typeof MilitaryTechIcon>>
     | React.ReactElement<React.ComponentProps<typeof SchoolIcon>>
     | React.ReactElement<React.ComponentProps<typeof MenuBookIcon>>;
-  dotColor: "primary" | "info";
   dotTooltip: React.ReactElement<React.PropsWithChildren>;
-  tooltipPlacement: "left" | "right";
-}
+  tooltipPlacement: "bottom-start" | "bottom-end"
+} & Omit<WorkHistoryBoxProps, "dotTooltipText" | "tooltipPlacement" >;
 
 const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -41,7 +44,7 @@ const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
   },
 }));
 
-const WorkHistoryBox: React.FC<WorkHistoryBoxProps> = (props) => {
+const WorkHistoryBox: React.FC<WorkHistoryBoxPropsWithIcons> = (props) => {
   return (
     <TimelineItem>
       <TimelineOppositeContent
@@ -61,7 +64,7 @@ const WorkHistoryBox: React.FC<WorkHistoryBoxProps> = (props) => {
             TransitionComponent={Fade}
             TransitionProps={{ timeout: 600 }}
           >
-            {props.dotIcon}
+            { props.dotIcon}
           </HtmlTooltip>
         </TimelineDot>
         <TimelineConnector />

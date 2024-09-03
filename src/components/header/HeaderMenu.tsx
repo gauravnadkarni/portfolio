@@ -9,20 +9,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import classes from "./HeaderMenu.module.css";
-import { useScroll } from "../ScrollContext";
+import useScrollContext from "../../hooks/ScrollContext";
+import useDataContext from "../../hooks/DataContext";
 import classNames from "classnames";
-
-const pages = [
-  "Home",
-  "About",
-  "Skills",
-  "Projects",
-  "Work History",
-  "Blog",
-  "Resume",
-  "Links",
-  "Contact",
-];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -34,32 +23,51 @@ function Header() {
 
   const [showStaticAppBar, setShowStaticAppBar] = React.useState<boolean>(true);
 
-  const { homeRef,aboutRef,blogRef,contactRef,projectsRef,resumeRef,skillsRef,workHistoryRef, scrollToSection } = useScroll();
+  const { homeRef,aboutRef,blogRef,contactRef,projectsRef,resumeRef,skillsRef,workHistoryRef, scrollToSection } = useScrollContext();
+
+  const { featureSwitches: {
+    home: homeFeatureEnabled,
+    about: aboutFeatureEnabled,
+    resume: resumeFeatureEnabled,
+    skill: skillFeatureEnabled,
+    workHistory: workItemFeatureEnabled,
+    footer: footerFeaturEnabled,
+    projects: projectsFeaturEnabled,
+    blogs: blogsFeaturEnabled,
+  } } = useDataContext();
 
   const pagesObject = [{
     name:"Home",
-    ref: homeRef
+    ref: homeRef,
+    isFeatureEnabled: homeFeatureEnabled,
   },{
     name:"About",
-    ref: aboutRef
+    ref: aboutRef,
+    isFeatureEnabled: aboutFeatureEnabled,
   },{
     name:"Skills",
-    ref: skillsRef
+    ref: skillsRef,
+    isFeatureEnabled: skillFeatureEnabled,
   },{
     name:"Projects",
-    ref: projectsRef
+    ref: projectsRef,
+    isFeatureEnabled: projectsFeaturEnabled,
   },{
     name:"Work History",
-    ref: workHistoryRef
+    ref: workHistoryRef,
+    isFeatureEnabled: workItemFeatureEnabled,
   },{
     name:"Resume",
-    ref: resumeRef
+    ref: resumeRef,
+    isFeatureEnabled: resumeFeatureEnabled,
   },{
     name:"Blog",
-    ref: blogRef
+    ref: blogRef,
+    isFeatureEnabled: blogsFeaturEnabled,
   },{
     name:"Contact",
-    ref: contactRef
+    ref: contactRef,
+    isFeatureEnabled: footerFeaturEnabled,
   }];
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -97,9 +105,7 @@ function Header() {
   }, []);
 
   return (
-    <AppBar position="fixed" color="transparent" sx={{
-      boxShadow: 'none'}
-      }
+    <AppBar position="fixed" color="transparent" 
       classes={{root:classNames({[classes.staticAppBar]:showStaticAppBar, [classes.movingAppBar]:!showStaticAppBar})}}
       >
       <Container maxWidth="xl">
@@ -116,6 +122,7 @@ function Header() {
               fontWeight: 700,
               letterSpacing: ".3rem",
               textDecoration: "none",
+              fontSize: "1.6rem",
             }}
           >
             Portfolio
@@ -134,6 +141,7 @@ function Header() {
               fontWeight: 700,
               letterSpacing: ".3rem",
               textDecoration: "none",
+              fontSize: "1.6rem",
             }}
           >
             Portfolio
@@ -169,7 +177,7 @@ function Header() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pagesObject.map((page) => (
+              {pagesObject.filter((page)=>(page.isFeatureEnabled)).map((page) => (
                 <MenuItem key={page.name} onClick={() => {
                   handleCloseNavMenu();
                   scrollToSection(page.ref)
@@ -181,9 +189,9 @@ function Header() {
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
             <ul className="flex flex-row">
-            {pagesObject.map((page) => (
-                <li className="font-semibold" style={{'margin':'0px 10px'}}>
-                  <a href="#" onClick={() => scrollToSection(page.ref)}>{page.name}</a>
+            {pagesObject.filter((page)=>(page.isFeatureEnabled)).map((page, idx) => (
+                <li className="font-semibold" style={{'margin':'0px 10px'}} key={idx}>
+                  <a className={classes.link} onClick={() => scrollToSection(page.ref)}>{page.name}</a>
                 </li>
             ))}
             </ul>

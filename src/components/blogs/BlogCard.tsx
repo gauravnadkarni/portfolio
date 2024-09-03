@@ -4,16 +4,23 @@ import classnames from "classnames";
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 import StorageIcon from '@mui/icons-material/Storage';
 
+const Image: React.FC<PropsWithChildren> = () => (
+  <div style={{padding:'20px'}}>
+    <div className={classes.imageBox}>
+      <div>
+        <StorageIcon color='primary' style={{fontSize: '45px'}}/>
+      </div>
+    </div>
+  </div>
+)
+
 const BlogCard: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <Card>
       <CardActionArea>
         <CardMedia
-          component="img"
-          height="140"
-          image="/contemplative-reptile.jpg"
-          alt="green iguana"
-          classes={{img:classes.imageMedia}}
+          sx={{'padding':'20px'}}
+          component={Image}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

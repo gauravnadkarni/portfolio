@@ -1,0 +1,328 @@
+{
+  "home": {
+    "featureEnabled": true
+  },
+  "about": {
+    "featureEnabled": true,
+    "aboutBox": {
+      "name": "Gaurav Nadkarni",
+      "email": "nadkarnigaurav@gmail.com",
+      "phone": "+91 (895) 133 5234",
+      "profile": "Fullstack Developer",
+      "image": {
+        "src": "",
+        "altText": ""
+      },
+      "skills": [
+        {
+          "name": "Nodejs",
+          "weightText": "8/10",
+          "weightAmount": 80
+        },
+        {
+          "name": "JavaScript",
+          "weightText": "8/10",
+          "weightAmount": 80
+        },
+        {
+          "name": "React",
+          "weightText": "7/10",
+          "weightAmount": 70
+        },
+        {
+          "name": "Database",
+          "weightText": "8/10",
+          "weightAmount": 80
+        },
+        {
+          "name": "Backend",
+          "weightText": "8/10",
+          "weightAmount": 85
+        },
+        {
+          "name": "Frontend",
+          "weightText": "7/10",
+          "weightAmount": 70
+        }
+      ]
+    }
+  },
+  "skill": {
+    "featureEnabled": true,
+    "skillsBox": {
+      "skills": [
+        {
+          "caption": "JavaScript",
+          "color": "primary"
+        },
+        {
+          "caption": "TypeScript",
+          "color": "primary"
+        },
+        {
+          "caption": "Node.js",
+          "color": "primary"
+        },
+        {
+          "caption": "React",
+          "color": "primary"
+        },
+        {
+          "caption": "HTML/CSS",
+          "color": "primary"
+        },
+        {
+          "caption": "MySQL/PostgreSQL",
+          "color": "primary"
+        },
+        {
+          "caption": "MongoDB",
+          "color": "primary"
+        },
+        {
+          "caption": "AWS/Azure",
+          "color": "primary"
+        },
+        {
+          "caption": "Integrations",
+          "color": "primary"
+        },
+        {
+          "caption": "Web Development",
+          "color": "primary"
+        },
+        {
+          "caption": "Backend Development",
+          "color": "primary"
+        },
+        {
+          "caption": "NestJS",
+          "color": "primary"
+        },
+        {
+          "caption": "express.JS",
+          "color": "primary"
+        },
+        {
+          "caption": "Redis",
+          "color": "primary"
+        },
+        {
+          "caption": "RabbitMQ/SQS",
+          "color": "primary"
+        },
+        {
+          "caption": "Serverless",
+          "color": "primary"
+        },
+        {
+          "caption": "git",
+          "color": "primary"
+        },
+        {
+          "caption": "JIRA",
+          "color": "primary"
+        },
+        {
+          "caption": "JAVA",
+          "color": "info"
+        },
+        {
+          "caption": "Php",
+          "color": "info"
+        }
+      ]
+    }
+  },
+  "projects": {
+    "featureEnabled": true,
+    "projectsBox": {
+      "projects": [{
+        "image":"/assets/images/cdt.jpg",
+        "title":"Castle, Doors & Treasure",
+        "description":"I developed this game for one of the hackthons that I participated in. The idea over here was to get through the doors until you find a monster behind them or you reach the treasure.",
+        "tech":[{
+          "link":"https://clerk.com/",
+          "name": "Clerk Auth"
+        },{
+          "link":"https://openai.com/index/chatgpt/",
+          "name": "ChatGPT"
+        },{
+          "link":"https://openai.com/index/dall-e/",
+          "name": "DALLE"
+        },{
+          "link":"https://nextjs.org/",
+          "name": "NEXT.JS"
+        },{
+          "link":"https://www.convex.dev/",
+          "name": "Convex"
+        }],
+        "links":[{
+          "link":"https://github.com/gauravnadkarni/castle-doors-treasure",
+          "iconText": "GITHUB"
+        },{
+          "link":"https://www.youtube.com/watch?v=VE-W_RRrAV4",
+          "iconText": "YOUTUBE"
+        }]
+      }]
+    }
+  },
+  "workHistory": {
+    "featureEnabled": true,
+    "workItemsBox": {
+      "workItems": [
+        {
+          "type": "Work",
+          "oppText": "2023",
+          "mainText": "Fena.co",
+          "subText": "Consultant(remote)",
+          "smallText": "London, UK",
+          "dotColor": "primary",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "left"
+        },
+        {
+          "type": "Certification",
+          "oppText": "2020",
+          "mainText": "ACP-600 & ACP-620",
+          "subText": "Atlassian Certification",
+          "smallText": "",
+          "dotColor": "info",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "right"
+        },
+        {
+          "type": "Work",
+          "oppText": "2019",
+          "mainText": "Empyra Software Solutions",
+          "subText": "Tech Lead",
+          "smallText": "Bangalore, India",
+          "dotColor": "primary",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "left"
+        },
+        {
+          "type": "Work",
+          "oppText": "2019",
+          "mainText": "Rakutan India Pvt Ltd",
+          "subText": "Senior Software Engineer",
+          "smallText": "Bangalore, India",
+          "dotColor": "primary",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "right"
+        },
+        {
+          "type": "Work",
+          "oppText": "2018",
+          "mainText": "Sourcebits Pvt Ltd",
+          "subText": "Associate Tech Lead",
+          "smallText": "Bangalore, India",
+          "dotColor": "primary",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "left"
+        },
+        {
+          "type": "Work",
+          "oppText": "2014",
+          "mainText": "Nalashaa Solutions Pvt Ltd",
+          "subText": "Senior Software Engineer",
+          "smallText": "Bangalore, India",
+          "dotColor": "primary",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "right"
+        },
+        {
+          "type": "Work",
+          "oppText": "2012",
+          "mainText": "Stridus Infotech Pvt ltd",
+          "subText": "Software Engineer",
+          "smallText": "Bangalore, India",
+          "dotColor": "primary",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "left"
+        },
+        {
+          "type": "Certification",
+          "oppText": "2011",
+          "mainText": "OCJP 1.6",
+          "subText": "Oracle Certification",
+          "smallText": "",
+          "dotColor": "info",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "right"
+        },
+        {
+          "type": "Course",
+          "oppText": "2011",
+          "mainText": "Programing Courses",
+          "subText": "Seed Infotech",
+          "smallText": "Pune, India",
+          "dotColor": "info",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "left"
+        },
+        {
+          "type": "Work",
+          "oppText": "2010",
+          "mainText": "Nanu Engineers Pvt Ltd (India)",
+          "subText": "System Admin",
+          "smallText": "Goa, India",
+          "dotColor": "primary",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "right"
+        },
+        {
+          "type": "Study",
+          "oppText": "2008",
+          "mainText": "Bachelor of Engineering(IT)",
+          "subText": "Goa University",
+          "smallText": "Goa, India",
+          "dotColor": "info",
+          "dotTooltipText": "It's very engaging. Right?",
+          "tooltipPlacement": "left"
+        }
+      ]
+    }
+  },
+  "resume": {
+    "featureEnabled": true,
+    "resumeBox": {
+      "path": "https://drive.google.com/file/d/1pEzLQeLBEXcPwhpsmCm9ixTNcO8Y-x8Z/view?usp=drive_link"
+    }
+  },
+  "blogs": {
+    "featureEnabled": false
+  },
+  "footer": {
+    "featureEnabled": true,
+    "contactBox": {
+      "physicalAddresses": [
+        {
+          "caption": "Address",
+          "value": "520/A, shirod curchorem, Goa India - 403706",
+          "icon": "ADDRESS"
+        },
+        {
+          "caption": "Phone",
+          "value": "+91 (895) 133 5234",
+          "icon": "PHONE"
+        },
+        {
+          "caption": "Email",
+          "value": "nadkarnigaurav@gmail.com",
+          "icon": "EMAIL"
+        }
+      ],
+      "socialLinks": [
+        {
+          "link": "https://www.linkedin.com/in/gauravnadkarni/",
+          "icon": "LINKEDIN"
+        },
+        {
+          "link": "https://github.com/gauravnadkarni",
+          "icon": "GITHUB"
+        }
+      ]
+    }
+  }
+}
