@@ -45,10 +45,10 @@ const AboutBox: React.FC<AboutBoxProps> = (props) => {
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
                   <GridItem>
                     <Grid container>
-                      <Grid size={{ xs: 12, sm: 12, md: 4, lg: 4, xl: 4 }}>
-                        <GridItem><Avatar alt={imageAltText} src={imageSrc} variant="rounded" sx={{ width: '100%', height: '8vw' }}/></GridItem>
+                      <Grid size={{ xs: 12, sm: 4, md: 4, lg: 4, xl: 4 }}>
+                        <GridItem><Avatar alt={imageAltText} src={imageSrc} variant="rounded" sx={{ width: '100%', height: '150px' }}/></GridItem>
                       </Grid>
-                      <Grid size={{ xs: 12, sm: 12, md: 8, lg: 8, xl: 8 }}>
+                      <Grid size={{ xs: 12, sm: 8, md: 8, lg: 8, xl: 8 }}>
                         <GridItem>
                           <div>
                             <div className={classes.profileDetailContainer}>

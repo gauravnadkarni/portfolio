@@ -16,9 +16,9 @@ const TypingSkill:React.FC<TypingSkillsProps> = (props) => {
   return (
     <TypeAnimation
       sequence={skills}
-      wrapper="span"
+      wrapper="div"
       speed={props.speed}
-      style={{ fontSize: '2em', display: 'inline-block' }}
+      style={{ fontSize: '2em', display: 'inline-block', lineHeight: 1.1 }}
       repeat={Infinity}
     />
   );

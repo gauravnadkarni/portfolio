@@ -5,7 +5,7 @@
 .profileDetailContainer {
     display: flex;
     justify-content: flex-start; /* Optional: Adds space between items */
-    margin: 10px;
+    margin: 0px 0px 10px;
   }
 
 .profileDetailContainer > .profileDetailbox:nth-child(1) {
@@ -60,5 +60,5 @@
   }
 
   .skillHeading {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }

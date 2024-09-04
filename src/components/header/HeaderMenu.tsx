@@ -97,8 +97,11 @@ function Header() {
   return (
     <AppBar position="fixed" color="transparent" 
       classes={{root:classNames({[classes.staticAppBar]:showStaticAppBar, [classes.movingAppBar]:!showStaticAppBar})}}
+      sx={{
+        boxShadow: 'none',
+      }}
       >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -115,7 +118,9 @@ function Header() {
               fontSize: "1.6rem",
             }}
           >
+            <a href="/">
             Portfolio
+            </a>
           </Typography>
 
           <Typography
@@ -134,7 +139,9 @@ function Header() {
               fontSize: "1.6rem",
             }}
           >
+            <a href="/">
             Portfolio
+            </a>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
 

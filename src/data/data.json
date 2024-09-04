@@ -10,8 +10,8 @@
       "phone": "+91 (895) 133 5234",
       "profile": "Fullstack Developer",
       "image": {
-        "src": "",
-        "altText": ""
+        "src": "assets/images/profile-pic.png",
+        "altText": "Gaurav"
       },
       "skills": [
         {
@@ -36,7 +36,7 @@
         },
         {
           "name": "Backend",
-          "weightText": "8/10",
+          "weightText": "8.5/10",
           "weightAmount": 85
         },
         {
@@ -299,7 +299,7 @@
       "physicalAddresses": [
         {
           "caption": "Address",
-          "value": "520/A, shirod curchorem, Goa India - 403706",
+          "value": "Goa, India - 403706",
           "icon": "ADDRESS"
         },
         {

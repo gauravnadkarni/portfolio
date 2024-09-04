@@ -7,6 +7,7 @@ import HeaderMenu from "../components/header/HeaderMenu";
 import TypingSkills from "../components/TypingSkill";
 import useDataContext from "../hooks/DataContext";
 import useScrollContext from "../hooks/ScrollContext";
+import GridItem from '../components/GridItem';
 
 interface LayoutProps {
   window?: () => Window;
@@ -73,30 +74,34 @@ const Layout: React.FC<LayoutProps> = ({ children }, props) => {
       <HeaderMenu />
       { homeFeatureEnabled && <div
         className="bg-cover bg-center h-screen"
-        style={{ backgroundImage: 'url("intro-bg.jpg")' }}
+        style={{ backgroundImage: 'url("assets/images/home-bg.png")' }}
         ref={homeRef}
         id="back-to-top-anchor"
       >
         <Container maxWidth="lg">
           <Grid container>
-            <div
-              className="flex justify-center items-center flex-col"
-              style={{ height: "100vh", margin: "auto" }}
-            >
-              <div
-                className="text-7xl text-white font-semibold"
-                style={{ marginBottom: "10px" }}
-              >
-                I am Gaurav Nadkarni
-              </div>
-              <div className="text-2xl text-white font-extralight">
-                <TypingSkills
-                  speed={20}
-                  delay={2000}
-                  skills={["#Fullstack Developer", "#Beckend Developer"]}
-                />
-              </div>
-            </div>
+            <Grid size={12}>
+              <GridItem>
+                <div
+                  className="flex justify-center items-center flex-col"
+                  style={{ height: "100vh", margin: "auto", textShadow:"5px -2px 7px black" }}
+                >
+                  <div
+                    className="text-7xl text-white font-semibold"
+                    style={{ marginBottom: "10px" }}
+                  >
+                    I am Gaurav Nadkarni
+                  </div>
+                  <div className="text-2xl text-white font-extralight">
+                    <TypingSkills
+                      speed={20}
+                      delay={2000}
+                      skills={["#Fullstack Developer", "#Beckend Developer"]}
+                    />
+                  </div>
+                </div>
+              </GridItem>
+            </Grid>
           </Grid>
         </Container>
       </div>}
