@@ -1,6 +1,11 @@
 {
   "home": {
-    
+    "mainImage":"assets/images/home-bg.png",
+    "profileName":"Gaurav Nadkarni",
+    "skills":[
+      "Fullstack Developer",
+      "Beckend Developer"
+    ]
   },
   "about": {
     "aboutBox": {

@@ -5,8 +5,10 @@ import { ProjectCardProps } from '../components/projects/ProjectCard';
 import { ResumeBoxProps } from '../components/Resume/ResumeBox';
 import { SkillsBoxProps } from '../components/skills/SkillsBox';
 import { WorkHistoryBoxesProps } from '../components/work-history/WorkHistoryBoxes';
+import { HomeBoxProps } from '../components/home/HomeBox';
 
 interface DataContextType {
+  homeBoxProps: HomeBoxProps;
   aboutBoxProps:AboutBoxProps;
   resumeBoxProps:ResumeBoxProps;
   skillsBoxProps:SkillsBoxProps;

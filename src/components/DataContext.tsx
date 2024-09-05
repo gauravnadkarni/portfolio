@@ -6,8 +6,10 @@ import { SkillsBoxProps } from "./skills/SkillsBox";
 import { WorkHistoryBoxesProps } from "./work-history/WorkHistoryBoxes";
 import { ContactBoxProps } from "./Contact/ContactBox";
 import { ProjectCardProps } from "./projects/ProjectCard";
+import { HomeBoxProps } from "./home/HomeBox";
 
 interface DataProviderProps {
+  homeBoxProps: HomeBoxProps;
   aboutBoxProps: AboutBoxProps;
   resumeBoxProps: ResumeBoxProps;
   skillsBoxProps: SkillsBoxProps;
@@ -18,6 +20,7 @@ interface DataProviderProps {
 }
 
 const DataProvider: React.FC<DataProviderProps> = ({
+  homeBoxProps,
   aboutBoxProps,
   resumeBoxProps,
   skillsBoxProps,
@@ -30,6 +33,7 @@ const DataProvider: React.FC<DataProviderProps> = ({
   return (
     <DataContext.Provider
       value={{
+        homeBoxProps,
         aboutBoxProps,
         resumeBoxProps,
         skillsBoxProps,

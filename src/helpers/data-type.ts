@@ -1,7 +1,11 @@
 import { SupportedIconType } from "./icon-map";
 
 type DataShape = {
-  home: Record<string, any>;
+  home: {
+    mainImage: string;
+    profileName: string;
+    skills: Array<string>;
+  };
   about: {
     aboutBox: {
       name: string;
@@ -37,10 +41,10 @@ type DataShape = {
           link: string;
           name: string;
         }>;
-        links:Array<{
-            link: string;
-            iconText: string;
-        }>
+        links: Array<{
+          link: string;
+          iconText: string;
+        }>;
       }>;
     };
   };

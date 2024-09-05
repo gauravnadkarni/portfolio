@@ -4,16 +4,15 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid2";
 import Footer from "../components/Footer";
 import HeaderMenu from "../components/header/HeaderMenu";
-import TypingSkills from "../components/TypingSkill";
-import useScrollContext from "../hooks/ScrollContext";
-import GridItem from '../components/GridItem';
 import FEATURE_ENABLED_MAP, { SupportedSectionType } from "../helpers/feature-enabled-map";
+import useScrollContext from "../hooks/ScrollContext";
 
 interface LayoutProps {
   window?: () => Window;
   children: React.ReactNode;
   topHalfChildren: React.ReactNode;
   bottomHalfChildren: React.ReactNode;
+  homeChild: React.ReactNode;
 }
 
 function smoothScrollToTop() {
@@ -60,9 +59,8 @@ function ScrollTop(props: LayoutProps) {
   );
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, topHalfChildren, bottomHalfChildren }, props) => {
+const Layout: React.FC<LayoutProps> = ({ children, topHalfChildren, bottomHalfChildren, homeChild }, props) => {
   const {
-    homeRef,
     contactRef
   } = useScrollContext();
 
@@ -71,39 +69,7 @@ const Layout: React.FC<LayoutProps> = ({ children, topHalfChildren, bottomHalfCh
   return (
     <> 
       <HeaderMenu />
-      { featureEnabledMap[SupportedSectionType.HOME] && <div
-        className="bg-cover bg-center h-screen"
-        style={{ backgroundImage: 'url("assets/images/home-bg.png")' }}
-        ref={homeRef}
-        id="back-to-top-anchor"
-      >
-        <Container maxWidth="lg">
-          <Grid container>
-            <Grid size={12}>
-              <GridItem>
-                <div
-                  className="flex justify-center items-center flex-col"
-                  style={{ height: "100vh", margin: "auto", textShadow:"5px -2px 7px black" }}
-                >
-                  <div
-                    className="text-7xl text-white font-semibold"
-                    style={{ marginBottom: "10px" }}
-                  >
-                    I am Gaurav Nadkarni
-                  </div>
-                  <div className="text-2xl text-white font-extralight">
-                    <TypingSkills
-                      speed={20}
-                      delay={2000}
-                      skills={["#Fullstack Developer", "#Beckend Developer"]}
-                    />
-                  </div>
-                </div>
-              </GridItem>
-            </Grid>
-          </Grid>
-        </Container>
-      </div>}
+      { featureEnabledMap[SupportedSectionType.HOME] && homeChild}
       <Container maxWidth="lg">
         <Grid container spacing={4} style={{ marginTop: "2rem" }}>
           {topHalfChildren}

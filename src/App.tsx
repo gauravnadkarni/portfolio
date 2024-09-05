@@ -19,6 +19,7 @@ const App: React.FC = () => {
   const contactRef = useRef<HTMLDivElement>(null);
 
   const {
+    home: homeBox,
     about: {
       aboutBox },
     resume: {
@@ -40,6 +41,7 @@ const App: React.FC = () => {
 
   return (
     <DataProvider
+      homeBoxProps={homeBox}
       aboutBoxProps={aboutBox}
       resumeBoxProps={resumeBox}
       skillsBoxProps={skillsBox as SkillsBoxProps}

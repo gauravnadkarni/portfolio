@@ -9,6 +9,8 @@ import Resume from "./Resume";
 import Skills from "./Skills";
 import WorkHistory from "./WorkHistory";
 import FEATURE_ENABLED_MAP, { SupportedSectionType } from "../helpers/feature-enabled-map";
+import HomeBox from "../components/home/HomeBox";
+import useDataContext from "../hooks/DataContext";
 
 const generateChildComponent = (
   component: React.ReactNode,
@@ -32,6 +34,12 @@ const Landing: React.FC = () => {
     workHistoryRef,
   } = useScrollContext();
 
+  const {homeBoxProps:{
+    mainImage: homeBoxMainImage,
+    profileName: homeBoxProfileImage,
+    skills: homeBoxSkills,
+  }} = useDataContext();
+
   const featureEnabledMap = FEATURE_ENABLED_MAP;
 
   const aboutComponent = featureEnabledMap[SupportedSectionType.ABOUT] && generateChildComponent(<About />, aboutRef);
@@ -40,6 +48,7 @@ const Landing: React.FC = () => {
   const workHistoryComponent = featureEnabledMap[SupportedSectionType.WORK_HISTORY] && generateChildComponent(<WorkHistory />, workHistoryRef);
   const resumeComponent = featureEnabledMap[SupportedSectionType.RESUME] && generateChildComponent(<Resume />, resumeRef);
   const blogsComponent = featureEnabledMap[SupportedSectionType.BLOG] && generateChildComponent(<Blog />, blogRef);
+  const homeComponent = featureEnabledMap[SupportedSectionType.HOME] && <HomeBox mainImage={homeBoxMainImage} profileName={homeBoxProfileImage} skills={homeBoxSkills} />;
   const topHalfChildren = (
     <>
       {aboutComponent}
@@ -59,6 +68,7 @@ const Landing: React.FC = () => {
     <PublicLayout
       topHalfChildren={topHalfChildren}
       bottomHalfChildren={bottomHalfChildren}
+      homeChild={homeComponent}
     >
       <div style={{
         backgroundImage:"url(assets/images/projects-bg.jpg)",
