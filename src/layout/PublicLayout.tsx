@@ -5,13 +5,15 @@ import Grid from "@mui/material/Grid2";
 import Footer from "../components/Footer";
 import HeaderMenu from "../components/header/HeaderMenu";
 import TypingSkills from "../components/TypingSkill";
-import useDataContext from "../hooks/DataContext";
 import useScrollContext from "../hooks/ScrollContext";
 import GridItem from '../components/GridItem';
+import FEATURE_ENABLED_MAP, { SupportedSectionType } from "../helpers/feature-enabled-map";
 
 interface LayoutProps {
   window?: () => Window;
   children: React.ReactNode;
+  topHalfChildren: React.ReactNode;
+  bottomHalfChildren: React.ReactNode;
 }
 
 function smoothScrollToTop() {
@@ -58,21 +60,18 @@ function ScrollTop(props: LayoutProps) {
   );
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }, props) => {
+const Layout: React.FC<LayoutProps> = ({ children, topHalfChildren, bottomHalfChildren }, props) => {
   const {
     homeRef,
     contactRef
   } = useScrollContext();
 
-  const { featureSwitches: {
-    home: homeFeatureEnabled,
-    footer: footerFeatureEnabled,
-  } } = useDataContext();
+  const featureEnabledMap = FEATURE_ENABLED_MAP;
   
   return (
     <> 
       <HeaderMenu />
-      { homeFeatureEnabled && <div
+      { featureEnabledMap[SupportedSectionType.HOME] && <div
         className="bg-cover bg-center h-screen"
         style={{ backgroundImage: 'url("assets/images/home-bg.png")' }}
         ref={homeRef}
@@ -107,10 +106,16 @@ const Layout: React.FC<LayoutProps> = ({ children }, props) => {
       </div>}
       <Container maxWidth="lg">
         <Grid container spacing={4} style={{ marginTop: "2rem" }}>
-          {children}
+          {topHalfChildren}
         </Grid>
       </Container>
-      {footerFeatureEnabled && <div ref={contactRef}>
+        {children}
+      <Container maxWidth="lg">
+        <Grid container spacing={4} style={{ marginTop: "2rem" }}>
+          {bottomHalfChildren}
+        </Grid>
+      </Container>
+      {featureEnabledMap[SupportedSectionType.FOOTER] && <div ref={contactRef}>
         <Footer />
       </div>}
       <ScrollTop {...props}>

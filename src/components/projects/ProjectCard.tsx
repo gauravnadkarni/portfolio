@@ -1,36 +1,38 @@
-import { SvgIconComponent } from '@mui/icons-material';
-import { Card, CardActions, CardContent, CardMedia, Chip, IconButton, Typography } from "@mui/material";
-import classes from './ProjectCard.module.css';
+import { SvgIconComponent } from "@mui/icons-material";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Chip,
+  IconButton,
+  Typography,
+} from "@mui/material";
+import classes from "./ProjectCard.module.css";
 
 export type ProjectCardProps = {
-  image:string;
-  title:string;
-  description:string;
-  tech:Array<{
-    link:string;
-    name:string;
+  image: string;
+  title: string;
+  description: string;
+  tech: Array<{
+    link: string;
+    name: string;
   }>;
-  links:Array<{
-    link:string;
-    iconText:string;
+  links: Array<{
+    link: string;
+    iconText: string;
   }>;
-}
+};
 
 export type ProjectCardPropsWithIcons = {
-  links:Array<{
-    link:string;
-    icon:SvgIconComponent;
+  links: Array<{
+    link: string;
+    icon: SvgIconComponent;
   }>;
-} & Omit<ProjectCardProps,"links">;
+} & Omit<ProjectCardProps, "links">;
 
 const ProjectCard: React.FC<ProjectCardPropsWithIcons> = (props) => {
-  const {
-    image,
-    title,
-    description,
-    tech,
-    links,
-  } = props;
+  const { image, title, description, tech, links } = props;
   return (
     <Card>
       <CardMedia
@@ -38,27 +40,45 @@ const ProjectCard: React.FC<ProjectCardPropsWithIcons> = (props) => {
         height="140"
         image={image || "/assets/images/project-placeholder.png"}
         alt={title}
-        classes={{img:classes.imageMedia}}
+        classes={{ img: classes.imageMedia }}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography variant="body2" sx={{ color: "text.secondary" }}>
           {description}
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary', padding:'5px'}}>
-          {tech && tech.map((techObj)=>(<Chip style={{margin:'5px'}} color='primary' label={techObj.name} component="a" clickable target='_blank' href={techObj.link}/>))}
+        <Typography
+          variant="body2"
+          sx={{ color: "text.secondary", padding: "5px" }}
+        >
+          {tech &&
+            tech.map((techObj) => (
+              <Chip
+                style={{ margin: "5px" }}
+                color="primary"
+                label={techObj.name}
+                component="a"
+                clickable
+                target="_blank"
+                href={techObj.link}
+              />
+            ))}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        {links && links.map((link)=>(
-          <IconButton>
-            <link.icon style={{ cursor: 'pointer' }} onClick={()=>{
-              window.open(link.link, '_blank', 'noopener,noreferrer');
-            }}/>
-          </IconButton>
-        ))}
+        {links &&
+          links.map((link) => (
+            <IconButton>
+              <link.icon
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  window.open(link.link, "_blank", "noopener,noreferrer");
+                }}
+              />
+            </IconButton>
+          ))}
       </CardActions>
     </Card>
   );

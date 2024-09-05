@@ -6,6 +6,7 @@ import { SkillsBoxProps } from "./components/skills/SkillsBox";
 import { WorkHistoryBoxesProps } from "./components/work-history/WorkHistoryBoxes";
 import DATA from "./data/data.json";
 import Landing from "./pages/Landing";
+import DataType from "./helpers/data-type";
 
 const App: React.FC = () => {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -18,47 +19,24 @@ const App: React.FC = () => {
   const contactRef = useRef<HTMLDivElement>(null);
 
   const {
-    home: {
-      featureEnabled: homeFeatureEnabled,
-    },
     about: {
-      featureEnabled: aboutFeatureEnabled,
       aboutBox },
     resume: {
-      featureEnabled: resumeFeatureEnabled,
       resumeBox
     },
     skill: {
-      featureEnabled: skillFeatureEnabled,
       skillsBox 
     },
     workHistory: {
-      featureEnabled: workItemFeatureEnabled,
       workItemsBox 
     },
     footer: {
-      featureEnabled: footerFeaturEnabled,
       contactBox
     },
     projects: {
-      featureEnabled: projectsFeaturEnabled,
       projectsBox
     },
-    blogs: {
-      featureEnabled: blogsFeaturEnabled,
-    },
-  } = DATA;
-
-  const featureSwitches = {
-    home:homeFeatureEnabled,
-    about:aboutFeatureEnabled,
-    skill:skillFeatureEnabled,
-    projects:projectsFeaturEnabled,
-    workHistory:workItemFeatureEnabled,
-    resume:resumeFeatureEnabled,
-    blogs:blogsFeaturEnabled,
-    footer:footerFeaturEnabled,
-  }
+  } =  DATA as DataType;
 
   return (
     <DataProvider
@@ -68,7 +46,6 @@ const App: React.FC = () => {
       workHistoryBoxProps={workItemsBox as WorkHistoryBoxesProps}
       contactBoxProps={contactBox}
       projectBoxProps={projectsBox.projects}
-      featureSwitches={featureSwitches}
     >
       <ScrollProvider
         aboutRef={aboutRef}

@@ -13,16 +13,6 @@ interface DataContextType {
   workHistoryBoxProps:WorkHistoryBoxesProps;
   contactBoxProps:ContactBoxProps;
   projectBoxProps:Array<ProjectCardProps>;
-  featureSwitches: {
-    home:boolean;
-    skill:boolean;
-    projects:boolean;
-    workHistory:boolean;
-    resume:boolean;
-    blogs:boolean;
-    footer:boolean;
-    about:boolean;
-  }
 }
 
 export const DataContext = createContext<DataContextType | undefined>(undefined);

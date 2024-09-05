@@ -1,3 +1,4 @@
+import * as React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -8,10 +9,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import classNames from "classnames";
-import * as React from "react";
-import useDataContext from "../../hooks/DataContext";
 import useScrollContext from "../../hooks/ScrollContext";
 import classes from "./HeaderMenu.module.css";
+import FEATURE_ENABLED_MAP, { SupportedSectionType } from "../../helpers/feature-enabled-map";
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -22,49 +22,38 @@ function Header() {
 
   const { homeRef,aboutRef,blogRef,contactRef,projectsRef,resumeRef,skillsRef,workHistoryRef, scrollToSection } = useScrollContext();
 
-  const { featureSwitches: {
-    home: homeFeatureEnabled,
-    about: aboutFeatureEnabled,
-    resume: resumeFeatureEnabled,
-    skill: skillFeatureEnabled,
-    workHistory: workItemFeatureEnabled,
-    footer: footerFeaturEnabled,
-    projects: projectsFeaturEnabled,
-    blogs: blogsFeaturEnabled,
-  } } = useDataContext();
-
   const pagesObject = [{
     name:"Home",
     ref: homeRef,
-    isFeatureEnabled: homeFeatureEnabled,
+    isFeatureEnabled: FEATURE_ENABLED_MAP[SupportedSectionType.HOME],
   },{
     name:"About",
     ref: aboutRef,
-    isFeatureEnabled: aboutFeatureEnabled,
+    isFeatureEnabled: FEATURE_ENABLED_MAP[SupportedSectionType.ABOUT],
   },{
     name:"Skills",
     ref: skillsRef,
-    isFeatureEnabled: skillFeatureEnabled,
+    isFeatureEnabled: FEATURE_ENABLED_MAP[SupportedSectionType.SKILL],
   },{
     name:"Projects",
     ref: projectsRef,
-    isFeatureEnabled: projectsFeaturEnabled,
+    isFeatureEnabled: FEATURE_ENABLED_MAP[SupportedSectionType.PROJECT],
   },{
     name:"Work History",
     ref: workHistoryRef,
-    isFeatureEnabled: workItemFeatureEnabled,
+    isFeatureEnabled: FEATURE_ENABLED_MAP[SupportedSectionType.WORK_HISTORY],
   },{
     name:"Resume",
     ref: resumeRef,
-    isFeatureEnabled: resumeFeatureEnabled,
+    isFeatureEnabled: FEATURE_ENABLED_MAP[SupportedSectionType.RESUME],
   },{
     name:"Blog",
     ref: blogRef,
-    isFeatureEnabled: blogsFeaturEnabled,
+    isFeatureEnabled: FEATURE_ENABLED_MAP[SupportedSectionType.BLOG],
   },{
     name:"Contact",
     ref: contactRef,
-    isFeatureEnabled: footerFeaturEnabled,
+    isFeatureEnabled: FEATURE_ENABLED_MAP[SupportedSectionType.FOOTER],
   }];
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -100,6 +89,7 @@ function Header() {
       sx={{
         boxShadow: 'none',
       }}
+      component="div"
       >
       <Container maxWidth="lg">
         <Toolbar disableGutters>

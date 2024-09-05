@@ -1,9 +1,8 @@
 {
   "home": {
-    "featureEnabled": true
+    
   },
   "about": {
-    "featureEnabled": true,
     "aboutBox": {
       "name": "Gaurav Nadkarni",
       "email": "nadkarnigaurav@gmail.com",
@@ -48,7 +47,6 @@
     }
   },
   "skill": {
-    "featureEnabled": true,
     "skillsBox": {
       "skills": [
         {
@@ -135,7 +133,6 @@
     }
   },
   "projects": {
-    "featureEnabled": true,
     "projectsBox": {
       "projects": [{
         "image":"/assets/images/cdt.jpg",
@@ -168,7 +165,6 @@
     }
   },
   "workHistory": {
-    "featureEnabled": true,
     "workItemsBox": {
       "workItems": [
         {
@@ -178,7 +174,7 @@
           "subText": "Consultant(remote)",
           "smallText": "London, UK",
           "dotColor": "primary",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "II was working as a contract employee for this organization and implemented the integration for OpenCart using the third party integration apis. I was also involved in suggesting improvements in their process, tech-stack and implementations.",
           "tooltipPlacement": "left"
         },
         {
@@ -188,7 +184,7 @@
           "subText": "Atlassian Certification",
           "smallText": "",
           "dotColor": "info",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "Earned Atlassian certifications",
           "tooltipPlacement": "right"
         },
         {
@@ -198,7 +194,7 @@
           "subText": "Tech Lead",
           "smallText": "Bangalore, India",
           "dotColor": "primary",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "I was Hired as a tech lead over here and my main responsibility was to guide the team technically on the project and to mentor junior developers. There were many project which I used to work on simultaneously. I was also involved in calls for collecting client requirements and to propose over all architectures for implementation, guide the implementation aiding wherever required and giving the clients demos and updates.",
           "tooltipPlacement": "left"
         },
         {
@@ -208,7 +204,7 @@
           "subText": "Senior Software Engineer",
           "smallText": "Bangalore, India",
           "dotColor": "primary",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "I was hired as a senior software engineer over here Role: Support a CMS developed in Wordpress which was supposed to go to production in a months time.",
           "tooltipPlacement": "right"
         },
         {
@@ -218,7 +214,7 @@
           "subText": "Associate Tech Lead",
           "smallText": "Bangalore, India",
           "dotColor": "primary",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "I was Hired as a Associate tech lead over here and my main responsibility was to guide the team technically on the project and to mentor junior developers.",
           "tooltipPlacement": "left"
         },
         {
@@ -228,7 +224,7 @@
           "subText": "Senior Software Engineer",
           "smallText": "Bangalore, India",
           "dotColor": "primary",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "Initially I worked over here as a Software Engineer but later was promoted to Senior software engineer. Here are mostly worked with the US clients where I was the only technical person working from India and coordinating with tech lead and manager from US.",
           "tooltipPlacement": "right"
         },
         {
@@ -238,7 +234,7 @@
           "subText": "Software Engineer",
           "smallText": "Bangalore, India",
           "dotColor": "primary",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "I worked as a developer in a team of 10 members. reporting to a technical manager who was onsite in US. I worked on a couple of projects during my time here.",
           "tooltipPlacement": "left"
         },
         {
@@ -248,7 +244,7 @@
           "subText": "Oracle Certification",
           "smallText": "",
           "dotColor": "info",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "Earned the Oracle certified Java Professional 1.6 certification",
           "tooltipPlacement": "right"
         },
         {
@@ -258,7 +254,7 @@
           "subText": "Seed Infotech",
           "smallText": "Pune, India",
           "dotColor": "info",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "Completed Java, J2EE, spring and Hibernate courses from the institute",
           "tooltipPlacement": "left"
         },
         {
@@ -268,7 +264,7 @@
           "subText": "System Admin",
           "smallText": "Goa, India",
           "dotColor": "primary",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "I was responsible for managing the computer networks of the organization, as well as maintaining the software on our systems. Our infrastructure included an MS Exchange on-premises server, a Windows server, and a mix of Windows and Linux machines. A key achievement in this role was installing Linux machines and successfully integrating them with the Windows server. This allowed users to access the ERP systems hosted on the Windows server with different user accounts, thereby saving the organization from purchasing additional Windows licenses.",
           "tooltipPlacement": "right"
         },
         {
@@ -278,23 +274,21 @@
           "subText": "Goa University",
           "smallText": "Goa, India",
           "dotColor": "info",
-          "dotTooltipText": "It's very engaging. Right?",
+          "dotTooltipText": "Completed BE in information technology",
           "tooltipPlacement": "left"
         }
       ]
     }
   },
   "resume": {
-    "featureEnabled": true,
     "resumeBox": {
       "path": "https://drive.google.com/file/d/1pEzLQeLBEXcPwhpsmCm9ixTNcO8Y-x8Z/view?usp=drive_link"
     }
   },
   "blogs": {
-    "featureEnabled": false
+
   },
   "footer": {
-    "featureEnabled": true,
     "contactBox": {
       "physicalAddresses": [
         {

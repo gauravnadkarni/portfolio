@@ -16,10 +16,9 @@ const SkillsBox: React.FC<SkillsBoxProps> = (props) => {
     <div className={classes.skillContainerBox}>
       <div className={classes.skillContainer}>
         {skills.map((skill, idx) => (
-          <div className={classes.skill}>
+          <div key={idx} className={classes.skill}>
             <Chip
               label={skill.caption}
-              key={idx}
               color={skill.color || "info"}
             />
           </div>

@@ -1,5 +1,5 @@
 import { Box, Grid2 as Grid } from '@mui/material';
-import ICON_MAP from "../helpers/icon-map";
+import {getIconFromText} from "../helpers/icon-map";
 import useDataContext from "../hooks/DataContext";
 import ContactBox, { ContactBoxPropsWithIcons } from './Contact/ContactBox';
 import GridItem from './GridItem';
@@ -9,11 +9,11 @@ const Footer: React.FC = () => {
   const contactBoxPropsWithIcons:ContactBoxPropsWithIcons = {
     physicalAddresses: contactBoxProps.physicalAddresses.map((address)=>({
       ...address,
-      icon: ICON_MAP[address.icon]
+      icon: getIconFromText(address.icon)
     })),
     socialLinks: contactBoxProps.socialLinks.map((social)=>({
       ...social,
-      icon: ICON_MAP[social.icon]
+      icon: getIconFromText(social.icon)
     }))
   }
 
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
         padding: 0,
         height: '100%',
         width: '100%',
-        opacity: 0.3,
+        opacity: 0.7,
         backgroundColor: '#a7caed',
       }}>
       </div>

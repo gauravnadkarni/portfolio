@@ -14,16 +14,6 @@ interface DataProviderProps {
   workHistoryBoxProps: WorkHistoryBoxesProps;
   contactBoxProps: ContactBoxProps;
   projectBoxProps:Array<ProjectCardProps>;
-  featureSwitches: {
-    home:boolean;
-    about:boolean;
-    skill:boolean;
-    projects:boolean;
-    workHistory:boolean;
-    resume:boolean;
-    blogs:boolean;
-    footer:boolean;
-  }
   children: React.ReactNode;
 }
 
@@ -34,7 +24,6 @@ const DataProvider: React.FC<DataProviderProps> = ({
   workHistoryBoxProps,
   contactBoxProps,
   projectBoxProps,
-  featureSwitches,
   children,
 }) => {
 
@@ -47,7 +36,6 @@ const DataProvider: React.FC<DataProviderProps> = ({
         workHistoryBoxProps,
         contactBoxProps,
         projectBoxProps,
-        featureSwitches,
       }}
     >
       {children}
