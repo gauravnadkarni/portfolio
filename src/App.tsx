@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import DataProvider from "./components/DataContext";
 import ScrollProvider from "./components/ScrollContext";
@@ -38,6 +38,10 @@ const App: React.FC = () => {
       projectsBox
     },
   } =  DATA as DataType;
+
+  useEffect(()=>{
+    document.title = "Gaurav's Portfolio";
+  },[])
 
   return (
     <DataProvider
