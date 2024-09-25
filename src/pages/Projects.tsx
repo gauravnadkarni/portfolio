@@ -25,9 +25,10 @@ const Projects: React.FC = () => {
   } = projectDialogState;
 
   const handleDialogClose = () => {
-    setProjectDialogState({
-      ...initailState
-    })
+    setProjectDialogState((prevState)=>({
+      ...prevState,
+      isOpen:false
+    }))
   }
 
   const handleDialogOpen = (title:string, description:Array<string>) => {

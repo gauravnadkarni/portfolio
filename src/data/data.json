@@ -204,6 +204,33 @@
         "links":[{
           "iconText": "INFO"
         }]
+      },{
+        "image":"",
+        "shortTitle":"Atlassian App",
+        "shortDescription":"I was a Part of the team which designed the Jira-servicenow app connector which could push the data from customer's Jira cloud instance to Servicenow instance",
+        "longTitle":"Jira Servicenow Connector App",
+        "longDescription":[
+          "This app is designed for seamless integration in the cloud. This app empowers users to effortlessly push data from Jira Cloud to their ServiceNow instance as updates are made.",
+          "Users have complete control over the data transfer process, enabling them to specify exactly which Jira data gets sent to ServiceNow and in which fields that data is placed. The app offers custom configurations, allowing for precise field mappings between Jira and ServiceNow, ensuring that data is organized exactly as needed.",
+          "This connector not only facilitates the data transfer but also handles any necessary transformations required during the process. This ensures a smooth and efficient integration experience, enhancing productivity and streamlining workflows between these two powerful platforms."
+        ],
+        "type": "private",
+        "tech":[{
+          "link":"https://www.google.com/search?q=JavaScript",
+          "name": "JavaScript"
+        },{
+          "link":"https://jquery.com/",
+          "name": "Jquery"
+        },{
+          "link":"https://nodejs.org/",
+          "name": "Node.js"
+        },{
+          "link":"https://www.postgresql.org/",
+          "name": "PostgreSQL"
+        }],
+        "links":[{
+          "iconText": "INFO"
+        }]
       }]
     }
   },
