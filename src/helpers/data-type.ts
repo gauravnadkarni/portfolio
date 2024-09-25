@@ -37,6 +37,7 @@ type DataShape = {
         image: string;
         title: string;
         description: string;
+        type: 'public' | 'private';
         tech: Array<{
           link: string;
           name: string;
