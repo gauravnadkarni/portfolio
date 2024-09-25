@@ -35,15 +35,17 @@ type DataShape = {
     projectsBox: {
       projects: Array<{
         image: string;
-        title: string;
-        description: string;
+        shortTitle: string;
+        longTitle:string;
+        shortDescription: string;
+        longDescription: Array<string>;
         type: 'public' | 'private';
         tech: Array<{
           link: string;
           name: string;
         }>;
         links: Array<{
-          link: string;
+          link?: string;
           iconText: string;
         }>;
       }>;

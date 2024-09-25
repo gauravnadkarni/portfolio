@@ -5,6 +5,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import FeedbackIcon from '@mui/icons-material/Feedback';
+import InfoIcon from '@mui/icons-material/Info';
 import { SvgIconComponent } from "@mui/icons-material";
 
 export enum SupportedIconType {
@@ -14,6 +15,7 @@ export enum SupportedIconType {
   LINKEDIN = "LINKEDIN",
   GITHUB = "GITHUB",
   YOUTUBE = "YOUTUBE",
+  INFO = "INFO",
   DEFAULT = "DEFAULT_ICON",
 }
 
@@ -25,10 +27,10 @@ const DATA: Record<SupportedIconType, SvgIconComponent> = {
   [SupportedIconType.GITHUB]: GitHubIcon,
   [SupportedIconType.YOUTUBE]: YouTubeIcon,
   [SupportedIconType.DEFAULT]: FeedbackIcon,
+  [SupportedIconType.INFO]: InfoIcon,
 };
 
 export const getIconFromText = (iconText:string):SvgIconComponent => {
-  console.log("---------------", iconText)
   let icon:SvgIconComponent = FeedbackIcon;
   switch (iconText) {
     case SupportedIconType.ADDRESS:
@@ -37,6 +39,7 @@ export const getIconFromText = (iconText:string):SvgIconComponent => {
     case SupportedIconType.LINKEDIN:
     case SupportedIconType.GITHUB:
     case SupportedIconType.YOUTUBE:
+    case SupportedIconType.INFO:
       icon = DATA[iconText];
       break;
     default:
