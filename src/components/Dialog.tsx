@@ -51,7 +51,6 @@ const DialogBox: React.FC<DialogProps> = ({
             {content && content.map((segment)=>(<Typography gutterBottom>
                 {segment}
           </Typography>))}
-          <DialogContentText>{content}</DialogContentText>
         </DialogContent>
         {actions && <DialogActions>{generateButtons(actions)}</DialogActions>}
       </Dialog>
