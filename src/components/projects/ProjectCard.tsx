@@ -41,7 +41,7 @@ export type ProjectCardPropsWithIcons = {
 const generateRibbon = (type: ProjectCardProps["type"]) => {
   return (
     type === "private" && (
-      <div className={classes.ribbon} title="Project Done for Organization">
+      <div className={classes.ribbon} title="Project Done for an Organization">
         ORG
       </div>
     )

@@ -142,10 +142,10 @@
       "projects": [{
         "image":"/assets/images/cdt.jpg",
         "shortTitle":"Castle, Doors & Treasure",
-        "shortDescription":"I developed this game for a hackathon I participated in. The goal was to progress through the doors at each level of a castle, either encountering a monster or reaching the treasure.",
+        "shortDescription":"I created this game for a hackathon I participated in. The objective is to advance through the doors at each level of a castle, facing either a monster or discovering the treasure.",
         "longTitle":"Castle, Doors & Treasure",
         "longDescription":[
-          "Embark on an exciting adventure in our innovative game designed to challenge players through four main components: Doors, Levels, Castles, and Treasures. Each level features a series of closed doors, behind which lie various hidden objects. As players navigate through multiple levels within each castle, they face the thrill of discovery and the potential for peril.",
+          "This is an exciting adventure game designed to challenge players through four main components: Doors, Levels, Castles, and Treasures. Each level features a series of closed doors, behind which lie various hidden objects. As players navigate through multiple levels within each castle, they face the thrill of discovery and the potential for peril.",
           "The objective is simple: click on the doors to reveal their contents. Players may uncover a passage to the next level or encounter a monster that ends their game. Successfully finding a pass allows players to advance through each door, leading them closer to the treasures waiting at the end of every castle. Along the way, players earn points for progressing through levels, with additional lives and bonuses hidden behind the doors for those daring enough to explore."
         ],
         "type": "public",
@@ -182,7 +182,8 @@
         "longDescription":[
           "This application was designed for a game show hosted on a television channel. The main idea behind the app was to engage viewers and encourage interaction with the show.",
           "The format of the game show was similar to \"Who Wants to Be a Millionaire\" where the host asked a series of questions to the contestant, and they could win money by answering correctly. Meanwhile, viewers could also play the game on their mobile devices, allowing them to feel as if they were part of the TV show.",
-          "They could answer the same questions as those on TV and earn reward points for their participation, which they could later redeem. There was also a feature allowing players to view their rankings and see how their points compared to those of other players."
+          "They could answer the same questions as those on TV and earn reward points for their participation, which they could later redeem. There was also a feature allowing players to view their rankings and see how their points compared to those of other players.",
+          "The highlight of this app was that it could support around a million concurrent connections"
         ],
         "type": "private",
         "tech":[{
@@ -234,6 +235,32 @@
         "links":[{
           "iconText": "INFO"
         }]
+      },{
+        "image":"",
+        "shortTitle":"Recruitment Platform",
+        "shortDescription":"The app coveres all hiring needs for organizations of all sizes. It supports virtual career fairs and recruitment sessions, ranging from a few hours to several weeks.",
+        "longTitle":"Career fair and Recruitment Platform",
+        "longDescription":[
+          "The application addresses the comprehensive hiring needs of organizations of all sizes. It supports virtual career fairs and recruitment sessions that can last from a few hours to several weeks.",
+          "With this app, users can easily group candidates, send emails, and access resumes. Inviting candidates and hiring managers to virtual career fairs or recruitment sessions can be done with just a few clicks. Additionally, interviewers have the ability to set their availability, allowing candidates to schedule interviews based on the interviewers' time slots."
+        ],
+        "type": "private",
+        "tech":[{
+          "link":"https://www.typescriptlang.org/",
+          "name": "TypeScript"
+        },{
+          "link":"https://react.dev/",
+          "name": "React"
+        },{
+          "link":"https://nodejs.org/",
+          "name": "Node.js"
+        },{
+          "link":"https://mui.com/",
+          "name": "MUI"
+        }],
+        "links":[{
+          "iconText": "INFO"
+        }]
       }]
     }
   },
@@ -248,13 +275,23 @@
           "smallText": "London, UK",
           "dotColor": "primary",
           "dotTooltipText": "II was working as a contract employee for this organization and implemented the integration for OpenCart using the third party integration apis. I was also involved in suggesting improvements in their process, tech-stack and implementations.",
+          "tooltipPlacement": "right"
+        },
+        {
+          "type": "Certification",
+          "oppText": "2021",
+          "mainText": "Product, Customer Success & Workflow Badges",
+          "subText": "monday.com Certifications",
+          "smallText": "",
+          "dotColor": "info",
+          "dotTooltipText": "Earned monday.com certifications",
           "tooltipPlacement": "left"
         },
         {
           "type": "Certification",
           "oppText": "2020",
           "mainText": "ACP-600 & ACP-620",
-          "subText": "Atlassian Certification",
+          "subText": "Atlassian Certifications",
           "smallText": "",
           "dotColor": "info",
           "dotTooltipText": "Earned Atlassian certifications",
