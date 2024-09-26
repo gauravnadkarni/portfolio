@@ -18,6 +18,7 @@ const SkillsBox: React.FC<SkillsBoxProps> = (props) => {
         {skills.map((skill, idx) => (
           <div key={idx} className={classes.skill}>
             <Chip
+              classes={{root:classes.skillRoot}}
               label={skill.caption}
               color={skill.color || "info"}
             />

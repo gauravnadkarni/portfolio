@@ -5,6 +5,7 @@ import WorkIcon from "@mui/icons-material/Work";
 import Timeline from "@mui/lab/Timeline";
 import * as React from "react";
 import WorkHistoryBox, { WorkHistoryBoxProps, WorkHistoryBoxPropsWithIcons } from "./WorkHistoryBox";
+import { Paper } from "@mui/material";
 
 export interface WorkHistoryBoxesProps {
   workItems: Array<WorkHistoryBoxProps>
@@ -38,9 +39,11 @@ const WorkHistoryBoxes: React.FC<WorkHistoryBoxesProps> = (props) => {
   });
 
     return (
-      <Timeline position="alternate">
-        {processedData.map((item,idx) => (<WorkHistoryBox  {...item}/>))}
-      </Timeline>
+      <Paper elevation={3} sx={{py:'30px', borderRadius:"10px"}}>
+        <Timeline position="alternate">
+          {processedData.map((item,idx) => (<WorkHistoryBox  {...item}/>))}
+        </Timeline>
+      </Paper>
     );
   };
 

@@ -88,6 +88,7 @@ const ProjectCard: React.FC<ProjectCardPropsWithIcons> = (props) => {
               {tech &&
                 tech.map((techObj) => (
                   <Chip
+                    classes={{root:classes.skillRoot}}
                     style={{ margin: "5px" }}
                     color="primary"
                     label={techObj.name}
