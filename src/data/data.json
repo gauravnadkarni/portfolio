@@ -195,6 +195,9 @@
           "link":"https://www.mysql.com/",
           "name": "MySQL"
         },{
+          "link":"https://socket.io/",
+          "name": "Socket.IO"
+        },{
           "link":"https://redis.io/",
           "name": "Redis"
         },{
