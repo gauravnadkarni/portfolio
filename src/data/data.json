@@ -187,8 +187,8 @@
         ],
         "type": "private",
         "tech":[{
-          "link":"https://www.google.com/search?q=JavaScript",
-          "name": "JavaScript"
+          "link":"https://www.typescriptlang.org/",
+          "name": "TypeScript"
         },{
           "link":"https://nodejs.org/",
           "name": "Node.js"
@@ -246,6 +246,36 @@
         ],
         "type": "private",
         "tech":[{
+          "link":"https://www.google.com/search?q=JavaScript",
+          "name": "JavaScript"
+        },{
+          "link":"https://react.dev/",
+          "name": "React"
+        },{
+          "link":"https://nodejs.org/",
+          "name": "Node.js"
+        },{
+          "link":"https://expressjs.com/",
+          "name": "Express.js"
+        },{
+          "link":"https://mui.com/",
+          "name": "MUI"
+        }],
+        "links":[{
+          "iconText": "INFO"
+        }]
+      },{
+        "image":"",
+        "shortTitle":"Ecommerce Product",
+        "shortDescription":"This is an app to manage ecommerce business for SMEs. It supports business transactions using Open Banking standards, product inventory and Multichannel Order Management.",
+        "longTitle":"Ecommerce Product",
+        "longDescription":[
+          "Open Banking platform that empowers organizations of all sizes to integrate seamless payment solutions and access financial data. With its innovative customer-facing portal, merchants can adopt Open Banking technologies, providing their end-users with alternative and secure payment options. This capability is designed to streamline financial transactions, enhancing user experience and operational efficiency.",
+          "The platform features a low-level API for direct banking integrations, catering to businesses with technical expertise seeking maximum customization. This API allows companies to maintain raw communication channels with banks while leveraging the platform's capabilities for enhanced functionality.",
+          "The focus is on automating instant bank payments and offering detailed banking data through its Business and Partners portals makes it a versatile solution for a variety of use cases. Whether you're a merchant looking to improve payment processes or a partner wishing to offer Open Banking integrations to your customers, the platform provides the tools necessary for a successful and efficient integration"
+        ],
+        "type": "private",
+        "tech":[{
           "link":"https://www.typescriptlang.org/",
           "name": "TypeScript"
         },{
@@ -255,8 +285,43 @@
           "link":"https://nodejs.org/",
           "name": "Node.js"
         },{
-          "link":"https://mui.com/",
-          "name": "MUI"
+          "link":"https://aws.amazon.com/",
+          "name": "AWS"
+        },{
+          "link":"https://www.postgresql.org/",
+          "name": "PostgreSQL"
+        },{
+          "link":"https://www.mongodb.com/",
+          "name": "MongoDB"
+        }],
+        "links":[{
+          "iconText": "INFO"
+        }]
+      },{
+        "image":"",
+        "shortTitle":"Cloudbased Saas Solution",
+        "shortDescription":"This cloud-based Saas application is a vital tool designed to assist healthcare providers and emergency managers during an event of natural calamities or disasters.",
+        "longTitle":"Cloudbased Saas Healthcare Solution for Disaster Management",
+        "longDescription":[
+          "This is a vital tool designed to assist healthcare providers and emergency managers during disasters. This cloud-based platform allows for the secure sharing of critical patient information, particularly for vulnerable populations, such as those on life support or with special needs.",
+          "It enables both inpatient and outpatient facilities to update patient data in real time, ensuring that local emergency services can plan and respond effectively. This proactive approach to disaster management has been tested in real-life scenarios, proving its effectiveness in enhancing patient safety and care during emergencies."
+        ],
+        "type": "private",
+        "tech":[{
+          "link":"https://www.google.com/search?q=JavaScript",
+          "name": "JavaScript"
+        },{
+          "link":"https://www.php.net/",
+          "name": "PHP"
+        },{
+          "link":"https://jquery.com/",
+          "name": "jQuery"
+        },{
+          "link":"https://www.mysql.com/",
+          "name": "MySQL"
+        },{
+          "link":"https://aws.amazon.com/",
+          "name": "AWS"
         }],
         "links":[{
           "iconText": "INFO"
