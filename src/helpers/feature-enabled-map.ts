@@ -59,6 +59,4 @@ const DATA: Record<SupportedSectionType, boolean> = {
   ),
 };
 
-console.log(DATA, process.env);
-
 export default DATA;

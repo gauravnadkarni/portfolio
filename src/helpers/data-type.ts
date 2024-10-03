@@ -21,6 +21,9 @@ type DataShape = {
         weightText: string;
         weightAmount: number;
       }>;
+      aboutMe: Array<{
+        paragraph: string;
+      }>
     };
   };
   skill: {

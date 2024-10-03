@@ -40,15 +40,22 @@
         },
         {
           "name": "Backend",
-          "weightText": "8.5/10",
-          "weightAmount": 85
+          "weightText": "8/10",
+          "weightAmount": 80
         },
         {
           "name": "Frontend",
           "weightText": "7/10",
           "weightAmount": 70
         }
-      ]
+      ],
+      "aboutMe":[{
+        "paragraph":"With over a decade of experience in software development, I have honed my skills across various technology stacks. My expertise lies in full-stack development, with a particular focus on backend-heavy solutions. Throughout my career, I have consistently delivered high-quality products to customers, ensuring that their needs are met with precision and care."
+      },{
+        "paragraph":"In addition to full-stack development, I have experience working with databases, cloud technologies, and real-time systems, all while managing to meet tight deadlines. My ability to adapt to different roles has been a key asset—I've thrived as a collaborator, a lone contributor, and a team leader. These experiences have provided me with unique perspectives on the software development process, allowing me to approach challenges from multiple standpoints."
+      },{
+        "paragraph":"I am confident in my ability to apply the lessons I've learned over the years to carry out my responsibilities efficiently and deliver quality results. As I look to the future, I am excited to apply my expertise to solving new problems and making a positive impact in the world."
+      }]
     }
   },
   "skill": {

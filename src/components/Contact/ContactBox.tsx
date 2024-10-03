@@ -34,9 +34,9 @@ const ContactBox: React.FC<ContactBoxPropsWithIcons> = ({
   return (
     <>
       <Grid container size={12} spacing={2} justifyContent="center">
-        {physicalAddresses.map((physicalAddress) => {
+        {physicalAddresses.map((physicalAddress, idx) => {
           return (
-            <Grid size={{ xl: 2, lg: 3, md: 4, sm: 12, xs: 12 }}>
+            <Grid key={idx} size={{ xl: 2, lg: 3, md: 4, sm: 12, xs: 12 }}>
               <GridItem>
                 <div className={classes.contactContainer}>
                   <div className={classes.contactContainerIcon}>
@@ -64,8 +64,8 @@ const ContactBox: React.FC<ContactBoxPropsWithIcons> = ({
                 Find me on
               </div>
               <div className={classes.contactSocialContainerIcons}>
-                {socialLinks.map((socialLink) => (
-                  <div className={classes.contactSocialContainerIcon}>
+                {socialLinks.map((socialLink, idx) => (
+                  <div key={idx} className={classes.contactSocialContainerIcon}>
                     <a target="_blank" href={socialLink.link} rel="noreferrer">
                       <socialLink.icon classes={{ root: classes.socialIcon }} />
                     </a>

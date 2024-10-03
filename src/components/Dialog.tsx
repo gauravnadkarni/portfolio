@@ -20,8 +20,8 @@ export type DialogProps = {
 };
 
 const generateButtons = (actions: DialogProps["actions"]) => {
-  return actions.map(({ onClick, title }) => (
-    <Button onClick={onClick} autoFocus>
+  return actions.map(({ onClick, title }, idx) => (
+    <Button key={idx} onClick={onClick} autoFocus>
       {title}
     </Button>
   ));
@@ -47,9 +47,12 @@ const DialogBox: React.FC<DialogProps> = ({
       >
         <DialogTitle id="responsive-dialog-title">{title}</DialogTitle>
         <DialogContent dividers>
-            {content && content.map((segment)=>(<Typography gutterBottom>
+          {content &&
+            content.map((segment, idx) => (
+              <Typography key={idx} gutterBottom>
                 {segment}
-          </Typography>))}
+              </Typography>
+            ))}
         </DialogContent>
         {actions && <DialogActions>{generateButtons(actions)}</DialogActions>}
       </Dialog>

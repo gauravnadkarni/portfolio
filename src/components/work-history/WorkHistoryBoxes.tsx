@@ -54,7 +54,7 @@ const WorkHistoryBoxes: React.FC<WorkHistoryBoxesProps> = (props) => {
     >
       <Timeline position="alternate">
         {processedData.map((item, idx) => (
-          <WorkHistoryBox {...item} />
+          <WorkHistoryBox key={idx} {...item} />
         ))}
       </Timeline>
     </Paper>

@@ -97,7 +97,7 @@ function Header() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -108,16 +108,14 @@ function Header() {
               fontSize: "1.6rem",
             }}
           >
-            <a href="/">
             Portfolio
-            </a>
           </Typography>
 
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -129,9 +127,7 @@ function Header() {
               fontSize: "1.6rem",
             }}
           >
-            <a href="/">
             Portfolio
-            </a>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
 

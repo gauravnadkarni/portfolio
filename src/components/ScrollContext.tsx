@@ -16,7 +16,6 @@ interface ScrollProviderProps {
 const ScrollProvider: React.FC<ScrollProviderProps> = ({ homeRef, aboutRef, skillsRef, projectsRef, workHistoryRef, blogRef, resumeRef, contactRef, children }) => {
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
-    console.log(ref)
     if(ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth' });
     }
