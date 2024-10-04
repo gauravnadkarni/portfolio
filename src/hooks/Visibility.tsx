@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const useVisibility = <T extends HTMLElement>(
   elements: Array<T>,
@@ -9,24 +9,32 @@ const useVisibility = <T extends HTMLElement>(
     boolean
   > | null>(null);
 
-  const checkAndSetVisibility = () => {
-    const itemCollection = { ...collection };
+  const checkAndSetVisibility = useCallback(() => {
+    let itemCollection = {...collection};
     elements.forEach((element) => {
-      if (element) {
+      if (element && itemCollection) {
         const top = element.getBoundingClientRect().top;
-        itemCollection[element.id] =
+        const isVisible:boolean =
           top + offset >= 0 && top - offset <= window.innerHeight;
+        if(itemCollection[element.id]!==isVisible) {
+          itemCollection[element.id]=isVisible;
+        }
       }
     });
-    setCollectionVisibility(itemCollection);
-  };
+    const isUpdatedRequired = Object.keys(itemCollection).find((itemKey)=>(
+      collection && itemCollection[itemKey]!==collection[itemKey]
+    ));
+    if(!collection || isUpdatedRequired) {
+      setCollectionVisibility(()=>(itemCollection));
+    }
+  },[collection,elements,offset]);
 
   useEffect(() => {
     document.addEventListener("scroll", checkAndSetVisibility, true);
     checkAndSetVisibility();
     return () =>
       document.removeEventListener("scroll", checkAndSetVisibility, true);
-  }, [elements]);
+  }, [checkAndSetVisibility]);
 
   return { collection };
 };

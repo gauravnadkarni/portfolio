@@ -2,10 +2,10 @@ import { Avatar, Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
+import { useCallback, useEffect, useRef, useState } from "react";
+import useVisibility from "../../hooks/Visibility";
 import GridItem from "../GridItem";
 import classes from "./AboutBox.module.css";
-import useVisibility from "../../hooks/Visibility";
-import { useCallback, useEffect, useRef, useState } from "react";
 
 export interface AboutBoxProps {
   name: string;
@@ -38,10 +38,10 @@ const AboutBox: React.FC<AboutBoxProps> = (props) => {
   } = props;
 
   const initialState = skills.reduce<
-    Record<string, { done: false; weight: number }>
+    Record<string, { done: boolean; weight: number }>
   >(
     (
-      acc: Record<string, { done: false; weight: number }>,
+      acc: Record<string, { done: boolean; weight: number }>,
       skill: AboutBoxProps["skills"][number]
     ) => {
       acc[skill.name] = { done: false, weight: 0 };
@@ -51,11 +51,13 @@ const AboutBox: React.FC<AboutBoxProps> = (props) => {
   );
 
   const elements = useRef<Array<HTMLDivElement>>([]);
+  const intervalRef = useRef<number | null>(null);
+  const collectionRef = useRef<Record<string, boolean> | null>(null);
   const [skillState, setSkillState] = useState<
     Record<string, { done: boolean; weight: number }> | undefined
   >({ ...initialState });
   const { collection }: { collection: Record<string, boolean> | null } =
-    useVisibility<HTMLDivElement>(elements.current, 100);
+    useVisibility<HTMLDivElement>(elements.current, 0);
 
   const addToElementsRef = (el: HTMLDivElement) => {
     if (el && !elements.current.includes(el)) {
@@ -64,58 +66,86 @@ const AboutBox: React.FC<AboutBoxProps> = (props) => {
   };
 
   const registerSkillLoading = useCallback(() => {
-    if (!collection || !skillState) {
+    if (!collectionRef.current) {
       return;
     }
 
-    skills.forEach((skill) => {
-      const matchingSkillFromState = skillState[skill.name];
-      const isRefVisible = collection[skill.name];
-      if (isRefVisible === true && matchingSkillFromState.done === false) {
-        let ref = setInterval(() => {
+    //setInterval code here - trying to batch state updates
+    const isAnySkillComponentVisible = Object.keys(collectionRef.current).find(
+      (skillName) => collectionRef.current && collectionRef.current[skillName]
+    );
+    if (intervalRef.current === null) {
+      if (isAnySkillComponentVisible) {
+        intervalRef.current = window.setInterval(() => {
           setSkillState((prevState) => {
             if (!prevState) {
-              return undefined;
-            }
-            const state = { ...prevState };
-            if (prevState[skill.name].weight === skill.weightAmount) {
-              clearInterval(ref);
               return prevState;
             }
-
-            state[skill.name] = {
-              ...state[skill.name],
-              weight: state[skill.name].weight + 1,
-            };
-            return {
-              ...state,
-            };
+            let currentState = { ...prevState };
+            skills.forEach((skill) => {
+              const matchingSkillFromState = currentState[skill.name];
+              const isRefVisible =
+                collectionRef.current && collectionRef.current[skill.name];
+              if (isRefVisible === true) {
+                // if ref is visible
+                if (matchingSkillFromState.done === false) {
+                  // if weight is yet to reach the mark
+                  if (matchingSkillFromState.weight === skill.weightAmount) {
+                    //if incrementing weight amount equals weight amount from props
+                    currentState[skill.name] = {
+                      done: true,
+                      weight: currentState[skill.name].weight,
+                    };
+                  } else {
+                    //else incrementing weight amount is yet to reach weight amount from props
+                    currentState[skill.name] = {
+                      done: false,
+                      weight: currentState[skill.name].weight + 1,
+                    };
+                  }
+                }
+                // else weight already reached the mark
+                //nothing needs to be done, we can get rid of this block
+              } else {
+                // ref is not visible
+                if (
+                  currentState[skill.name].done !== false ||
+                  currentState[skill.name].weight !== 0
+                ) {
+                  currentState[skill.name] = {
+                    done: false,
+                    weight: 0,
+                  };
+                }
+              }
+            });
+            const isStateUpdateNotRequired = skills.every(
+              (skill) =>
+                prevState[skill.name].weight ===
+                  currentState[skill.name].weight &&
+                prevState[skill.name].done === currentState[skill.name].done
+            );
+            return isStateUpdateNotRequired ? prevState : currentState;
           });
-        }, 100);
-      } else if (isRefVisible === false) {
-        setSkillState((prevState) => {
-          if (!prevState) {
-            return undefined;
-          }
-          const state = { ...prevState };
-          if(state[skill.name].done === false && state[skill.name].weight === 0) {
-            return prevState;
-          }
-          state[skill.name] = {
-            done: false,
-            weight: 0,
-          };
-          return {
-            ...state,
-          };
-        });
+        }, 3);
       }
-    });
-  },[collection,skillState,skills]);
+    } else {
+      if (!isAnySkillComponentVisible) {
+        console.log("clearing set interval");
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+        setSkillState(initialState);
+      }
+    }
+  }, [skills, initialState]);
+
+  useEffect(() => {
+    collectionRef.current = collection;
+  }, [collection]);
 
   useEffect(() => {
     registerSkillLoading();
-  },[registerSkillLoading]);
+  }, [registerSkillLoading]);
 
   return (
     <Box>
@@ -218,7 +248,9 @@ const AboutBox: React.FC<AboutBoxProps> = (props) => {
                     <div className={classes.aboutMeTitle}>About me</div>
                     <div className={classes.aboutMeContent}>
                       {aboutMe &&
-                        aboutMe.map((data,idx) => <p key={idx}>{data.paragraph}</p>)}
+                        aboutMe.map((data, idx) => (
+                          <p key={idx}>{data.paragraph}</p>
+                        ))}
                     </div>
                   </div>
                 </Grid>
