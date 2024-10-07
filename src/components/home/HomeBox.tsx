@@ -1,9 +1,10 @@
+import classes from "./Home.module.css";
+import { useTheme } from "@mui/material";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid2";
 import GridItem from "../../components/GridItem";
 import TypingSkills from "../../components/TypingSkill";
 import useScrollContext from "../../hooks/ScrollContext";
-import { useTheme } from "@mui/material";
 
 export type HomeBoxProps = {
   mainImage: string;
@@ -14,17 +15,26 @@ export type HomeBoxProps = {
 const HomeBox: React.FC<HomeBoxProps> = (props) => {
   const { homeRef } = useScrollContext();
   const theme = useTheme();
-
   const { mainImage, profileName, skills } = props;
 
   return (
     <div
       className="bg-cover bg-center h-screen"
-      style={{ backgroundImage: `url("${mainImage}")` }}
+      style={{ backgroundImage: `url("${mainImage}")`, position:'relative' }}
       ref={homeRef}
       id="back-to-top-anchor"
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg"
+        sx={(theme) => {
+          const isOverlayed = theme.palette.custom.isHeaderBackgroundOverlayed;
+          if(isOverlayed) {
+            return {
+              position:'relative',
+              zIndex:2,
+            };
+          }
+          return {};
+        }}>
         <Grid container>
           <Grid size={12}>
             <GridItem>
@@ -56,6 +66,7 @@ const HomeBox: React.FC<HomeBoxProps> = (props) => {
           </Grid>
         </Grid>
       </Container>
+      {theme.palette.custom.isHeaderBackgroundOverlayed && <div className={classes.overlay}></div>}
     </div>
   );
 };

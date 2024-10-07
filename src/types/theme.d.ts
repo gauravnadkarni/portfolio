@@ -7,6 +7,8 @@ declare module "@mui/material/styles" {
       bodyBackgroundColor: string;
       headerBackgroundColor: string;
       footerBackground: string;
+      isHeaderBackgroundOverlayed: boolean;
+      landingChildrenOverlayColor: string;
     };
   }
 
@@ -15,7 +17,9 @@ declare module "@mui/material/styles" {
       homeTextColor?:string;
       bodyBackgroundColor?: string;
       headerBackgroundColor?: string;
-      footerBackground: string;
+      footerBackground?: string;
+      isHeaderBackgroundOverlayed?: boolean;
+      landingChildrenOverlayColor: string;
     };
   }
 }

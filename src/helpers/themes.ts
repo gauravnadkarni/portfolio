@@ -19,6 +19,8 @@ const lightTheme = createTheme({
       headerBackgroundColor: "#ffffff",
       homeTextColor: "#ffffff",
       footerBackground: "#a7caed",
+      isHeaderBackgroundOverlayed:false,
+      landingChildrenOverlayColor: "#A7CAED",
     }
   },
 });
@@ -35,8 +37,10 @@ const darkTheme: Theme = createTheme({
     },
     custom: {
       headerBackgroundColor: "#000000",
-      homeTextColor: "#c0c0c0",
+      homeTextColor: "#ffffff",
       footerBackground: "#000000",
+      isHeaderBackgroundOverlayed:true,
+      landingChildrenOverlayColor: "#000000",
     },
   },
 });

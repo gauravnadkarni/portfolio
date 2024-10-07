@@ -1,4 +1,4 @@
-import { Container, Grid2 as Grid } from "@mui/material";
+import { Container, Grid2 as Grid, useTheme } from "@mui/material";
 import GridItem from "../components/GridItem";
 import useScrollContext from "../hooks/ScrollContext";
 import PublicLayout from "../layout/PublicLayout";
@@ -33,6 +33,7 @@ const Landing: React.FC = () => {
     resumeRef,
     workHistoryRef,
   } = useScrollContext();
+  const theme = useTheme();
 
   const {homeBoxProps:{
     mainImage: homeBoxMainImage,
@@ -86,8 +87,8 @@ const Landing: React.FC = () => {
           padding: "0px",
           height: "100%",
           width: "100%",
-          opacity: 0.3,
-          backgroundColor: "rgb(167, 202, 237)",
+          opacity: 0.5,
+          backgroundColor: theme.palette.custom.landingChildrenOverlayColor,
         }}
         ></div>
         <Container maxWidth="lg" sx={{position:"relative"}}>
