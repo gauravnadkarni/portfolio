@@ -1,12 +1,13 @@
 import { useEffect, useRef } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import DataProvider from "./components/DataContext";
-import ScrollProvider from "./components/ScrollContext";
+import DataProvider from "./providers/DataProvider";
+import ScrollProvider from "./providers/ScrollProvider";
 import { SkillsBoxProps } from "./components/skills/SkillsBox";
 import { WorkHistoryBoxesProps } from "./components/work-history/WorkHistoryBoxes";
 import DATA from "./data/data.json";
 import Landing from "./pages/Landing";
 import DataType from "./helpers/data-type";
+import { ThemeProvider } from "./providers/ThemeProvider";
 
 const App: React.FC = () => {
   const homeRef = useRef<HTMLDivElement>(null);
@@ -20,56 +21,47 @@ const App: React.FC = () => {
 
   const {
     home: homeBox,
-    about: {
-      aboutBox },
-    resume: {
-      resumeBox
-    },
-    skill: {
-      skillsBox 
-    },
-    workHistory: {
-      workItemsBox 
-    },
-    footer: {
-      contactBox
-    },
-    projects: {
-      projectsBox
-    },
-  } =  DATA as DataType;
+    about: { aboutBox },
+    resume: { resumeBox },
+    skill: { skillsBox },
+    workHistory: { workItemsBox },
+    footer: { contactBox },
+    projects: { projectsBox },
+  } = DATA as DataType;
 
-  useEffect(()=>{
+  useEffect(() => {
     document.title = "Gaurav's Portfolio";
-  },[])
+  }, []);
 
   return (
-    <DataProvider
-      homeBoxProps={homeBox}
-      aboutBoxProps={aboutBox}
-      resumeBoxProps={resumeBox}
-      skillsBoxProps={skillsBox as SkillsBoxProps}
-      workHistoryBoxProps={workItemsBox as WorkHistoryBoxesProps}
-      contactBoxProps={contactBox}
-      projectBoxProps={projectsBox.projects}
-    >
-      <ScrollProvider
-        aboutRef={aboutRef}
-        blogRef={blogRef}
-        contactRef={contactRef}
-        homeRef={homeRef}
-        projectsRef={projectsRef}
-        resumeRef={resumeRef}
-        skillsRef={skillsRef}
-        workHistoryRef={workHistoryRef}
+    <ThemeProvider>
+      <DataProvider
+        homeBoxProps={homeBox}
+        aboutBoxProps={aboutBox}
+        resumeBoxProps={resumeBox}
+        skillsBoxProps={skillsBox as SkillsBoxProps}
+        workHistoryBoxProps={workItemsBox as WorkHistoryBoxesProps}
+        contactBoxProps={contactBox}
+        projectBoxProps={projectsBox.projects}
       >
-        <Router>
-          <Routes>
-            <Route path="/" Component={() => <Landing />} />
-          </Routes>
-        </Router>
-      </ScrollProvider>
-    </DataProvider>
+        <ScrollProvider
+          aboutRef={aboutRef}
+          blogRef={blogRef}
+          contactRef={contactRef}
+          homeRef={homeRef}
+          projectsRef={projectsRef}
+          resumeRef={resumeRef}
+          skillsRef={skillsRef}
+          workHistoryRef={workHistoryRef}
+        >
+          <Router>
+            <Routes>
+              <Route path="/" Component={() => <Landing />} />
+            </Routes>
+          </Router>
+        </ScrollProvider>
+      </DataProvider>
+    </ThemeProvider>
   );
 };
 

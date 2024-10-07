@@ -1,12 +1,12 @@
 import React from "react";
 import { DataContext } from "../hooks/DataContext";
-import { AboutBoxProps } from "./about/AboutBox";
-import { ResumeBoxProps } from "./Resume/ResumeBox";
-import { SkillsBoxProps } from "./skills/SkillsBox";
-import { WorkHistoryBoxesProps } from "./work-history/WorkHistoryBoxes";
-import { ContactBoxProps } from "./Contact/ContactBox";
-import { ProjectCardProps } from "./projects/ProjectCard";
-import { HomeBoxProps } from "./home/HomeBox";
+import { AboutBoxProps } from "../components/about/AboutBox";
+import { ResumeBoxProps } from "../components/Resume/ResumeBox";
+import { SkillsBoxProps } from "../components/skills/SkillsBox";
+import { WorkHistoryBoxesProps } from "../components/work-history/WorkHistoryBoxes";
+import { ContactBoxProps } from "../components/Contact/ContactBox";
+import { ProjectCardProps } from "../components/projects/ProjectCard";
+import { HomeBoxProps } from "../components/home/HomeBox";
 
 interface DataProviderProps {
   homeBoxProps: HomeBoxProps;

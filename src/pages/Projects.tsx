@@ -51,7 +51,7 @@ const Projects: React.FC = () => {
 
   return (
     <>
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{py:"40px"}}>
       {projectCardsPropsWithIcons.map((project, idx) =>(<Grid size={{lg:4,md:4,xl:4,xs:12,sm:12}} key={idx}>
         <GridItem>
           <ProjectCard {...project}/>

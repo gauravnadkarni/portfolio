@@ -1,6 +1,6 @@
 .staticAppBar {
     transition: all .5s ease-in-out !important;
-    background-color: transparent !important;
+    background-color: var(--custom-headerBackgroundColor);
     color: white !important;
     --Paper-shadow: none;
     box-shadow: none;
@@ -9,7 +9,7 @@
 
 .movingAppBar {
     transition: all .5s ease-in-out !important;
-    background-color: white !important;
+    background-color: var(--custom-headerBackgroundColor);
     color: #0288d1 !important;
     box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.2) !important;
 }

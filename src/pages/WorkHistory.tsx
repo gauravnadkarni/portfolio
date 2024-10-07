@@ -9,7 +9,7 @@ const Landing: React.FC = () => {
   return (
     <Grid size={12}>
       <GridItem>
-        <WorkHistoryBoxes workItems={workHistoryBoxProps.workItems}/>
+        <WorkHistoryBoxes workItems={workHistoryBoxProps.workItems} />
       </GridItem>
     </Grid>
   );

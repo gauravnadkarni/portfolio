@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid2";
 import GridItem from "../../components/GridItem";
 import TypingSkills from "../../components/TypingSkill";
 import useScrollContext from "../../hooks/ScrollContext";
+import { useTheme } from "@mui/material";
 
 export type HomeBoxProps = {
   mainImage: string;
@@ -12,6 +13,7 @@ export type HomeBoxProps = {
 
 const HomeBox: React.FC<HomeBoxProps> = (props) => {
   const { homeRef } = useScrollContext();
+  const theme = useTheme();
 
   const { mainImage, profileName, skills } = props;
 
@@ -35,12 +37,14 @@ const HomeBox: React.FC<HomeBoxProps> = (props) => {
                 }}
               >
                 <div
-                  className="text-7xl text-white font-semibold"
-                  style={{ marginBottom: "10px" }}
+                  className="text-7xl font-semibold"
+                  style={{ marginBottom: "10px", color: theme.palette.custom.homeTextColor }}
                 >
                   {`I am ${profileName}`}
                 </div>
-                <div className="text-2xl text-white font-extralight">
+                <div className="text-2xl font-extralight"
+                  style={{color: theme.palette.custom.homeTextColor}}
+                >
                   <TypingSkills
                     speed={20}
                     delay={2000}

@@ -1,4 +1,4 @@
-import { Box, Grid2 as Grid } from '@mui/material';
+import { Box, Grid2 as Grid, useTheme } from '@mui/material';
 import {getIconFromText} from "../helpers/icon-map";
 import useDataContext from "../hooks/DataContext";
 import ContactBox, { ContactBoxPropsWithIcons } from './Contact/ContactBox';
@@ -6,6 +6,7 @@ import GridItem from './GridItem';
 
 const Footer: React.FC = () => {
   const {contactBoxProps} = useDataContext();
+  const theme = useTheme();
   const contactBoxPropsWithIcons:ContactBoxPropsWithIcons = {
     physicalAddresses: contactBoxProps.physicalAddresses.map((address)=>({
       ...address,
@@ -18,7 +19,7 @@ const Footer: React.FC = () => {
   }
 
   return (
-    <Box sx={{ py: 4, mt: 'auto', backgroundImage:"url('overlay-bg.jpg')", position:'relative', marginTop: "50px" }}>
+    <Box sx={{ py: 4, mt: 'auto', position:'relative', marginTop: "50px" }}>
       <div style={{
         position: 'absolute',
         top: 0,
@@ -27,7 +28,7 @@ const Footer: React.FC = () => {
         height: '100%',
         width: '100%',
         opacity: 0.7,
-        backgroundColor: '#a7caed',
+        backgroundColor: theme.palette.custom.footerBackground,
       }}>
       </div>
       <Box sx={{position:'relative' }}>

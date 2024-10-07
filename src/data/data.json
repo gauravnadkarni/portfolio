@@ -135,11 +135,11 @@
         },
         {
           "caption": "JAVA",
-          "color": "info"
+          "color": "primary"
         },
         {
           "caption": "Php",
-          "color": "info"
+          "color": "primary"
         }
       ]
     }

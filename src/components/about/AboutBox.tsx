@@ -1,4 +1,4 @@
-import { Avatar, Box } from "@mui/material";
+import { Avatar } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
@@ -148,11 +148,11 @@ const AboutBox: React.FC<AboutBoxProps> = (props) => {
   }, [registerSkillLoading]);
 
   return (
-    <Box>
-      <Paper elevation={3}>
-        <Grid container>
-          <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
-            <GridItem>
+    <Paper elevation={3}>
+      <Grid container>
+        <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
+          <GridItem>
+            <div style={{ padding: "20px" }}>
               <Grid container>
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
                   <GridItem>
@@ -210,56 +210,60 @@ const AboutBox: React.FC<AboutBoxProps> = (props) => {
                 </Grid>
                 <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
                   <GridItem>
-                    <div className={classes.skillBlock}>
-                      <div className={classes.skillHeading}>Skills</div>
-                      {skills.map((skill, idx) => (
-                        <div
-                          ref={addToElementsRef}
-                          id={skill.name}
-                          className={classes.skillBox}
-                          key={idx}
-                        >
-                          <div className={classes.skillBoxText}>
-                            <div className={classes.skillBoxLeft}>
-                              {skill.name}
+                    <div style={{ margin: "10px 0px 10px" }}>
+                      <div className={classes.skillBlock}>
+                        <div className={classes.skillHeading}>Skills</div>
+                        {skills.map((skill, idx) => (
+                          <div
+                            ref={addToElementsRef}
+                            id={skill.name}
+                            className={classes.skillBox}
+                            key={idx}
+                          >
+                            <div className={classes.skillBoxText}>
+                              <div className={classes.skillBoxLeft}>
+                                {skill.name}
+                              </div>
+                              <div className={classes.skillBoxRight}>
+                                {skill.weightText}
+                              </div>
                             </div>
-                            <div className={classes.skillBoxRight}>
-                              {skill.weightText}
-                            </div>
+                            <LinearProgress
+                              variant="determinate"
+                              value={
+                                skillState && skillState[skill.name].weight
+                              }
+                              sx={{ height: "10px" }}
+                            />
                           </div>
-                          <LinearProgress
-                            variant="determinate"
-                            value={skillState && skillState[skill.name].weight}
-                            sx={{ height: "10px" }}
-                          />
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </GridItem>
                 </Grid>
               </Grid>
-            </GridItem>
-          </Grid>
-          <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
-            <GridItem>
-              <Grid container>
-                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
-                  <div className={classes.aboutMeContainer}>
-                    <div className={classes.aboutMeTitle}>About me</div>
-                    <div className={classes.aboutMeContent}>
-                      {aboutMe &&
-                        aboutMe.map((data, idx) => (
-                          <p key={idx}>{data.paragraph}</p>
-                        ))}
-                    </div>
-                  </div>
-                </Grid>
-              </Grid>
-            </GridItem>
-          </Grid>
+            </div>
+          </GridItem>
         </Grid>
-      </Paper>
-    </Box>
+        <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
+          <GridItem>
+            <Grid container>
+              <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
+                <div className={classes.aboutMeContainer}>
+                  <div className={classes.aboutMeTitle}>About me</div>
+                  <div className={classes.aboutMeContent}>
+                    {aboutMe &&
+                      aboutMe.map((data, idx) => (
+                        <p key={idx}>{data.paragraph}</p>
+                      ))}
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
+          </GridItem>
+        </Grid>
+      </Grid>
+    </Paper>
   );
 };
 

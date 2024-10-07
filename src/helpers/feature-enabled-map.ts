@@ -7,6 +7,7 @@ export enum SupportedSectionType {
   RESUME = "resume",
   BLOG = "blog",
   FOOTER = "footer",
+  THEME = "theme", 
 }
 
 const DATA: Record<SupportedSectionType, boolean> = {
@@ -54,6 +55,12 @@ const DATA: Record<SupportedSectionType, boolean> = {
   [SupportedSectionType.FOOTER]: Boolean(
     (process.env.REACT_APP_FEATURE_ENABLED_FOOTER &&
       process.env.REACT_APP_FEATURE_ENABLED_FOOTER === "true")
+      ? true
+      : false
+  ),
+  [SupportedSectionType.THEME]: Boolean(
+    (process.env.REACT_APP_FEATURE_ENABLED_THEME &&
+      process.env.REACT_APP_FEATURE_ENABLED_THEME === "true")
       ? true
       : false
   ),
