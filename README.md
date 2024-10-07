@@ -15,6 +15,7 @@ This is a portfolio project designed using react.
 `REACT_APP_FEATURE_ENABLED_RESUME` Feature flag for resume section and menu item \
 `REACT_APP_FEATURE_ENABLED_BLOG` Feature flag for glog section and menu item \
 `REACT_APP_FEATURE_ENABLED_FOOTER` Feature flag for footer section and menu item 
+`REACT_APP_FEATURE_ENABLED_THEME` Feature flag for theme section and menu item
 
 In the project directory, you can run the following command run the code:
 ### `npm start`
