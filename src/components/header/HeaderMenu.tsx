@@ -1,4 +1,3 @@
-import * as React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -9,23 +8,24 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import classNames from "classnames";
-import useScrollContext from "../../hooks/ScrollContext";
-import useThemeContext from "../../hooks/ThemeContext";
-import classes from "./HeaderMenu.module.css";
+import * as React from "react";
 import FEATURE_ENABLED_MAP, {
   SupportedSectionType,
 } from "../../helpers/feature-enabled-map";
+import useScrollContext from "../../hooks/ScrollContext";
+import useThemeContext from "../../hooks/ThemeContext";
 import ThemeSwitch from "../ThemeSwitch";
-import { useTheme } from "@mui/material";
+import classes from "./HeaderMenu.module.css";
+import { AppTheme } from "../../helpers/themes";
 
 function Header() {
-  const theme = useTheme();
-  console.log(theme.palette, "-----------------------------");
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
 
   const [showStaticAppBar, setShowStaticAppBar] = React.useState<boolean>(true);
+  const { selectedTheme, changeTheme } = useThemeContext();
+
   const {
     homeRef,
     aboutRef,
@@ -37,7 +37,7 @@ function Header() {
     workHistoryRef,
     scrollToSection,
   } = useScrollContext();
-  const { isDarkMode, toggleTheme } = useThemeContext();
+ 
 
   const pagesObject: Array<{
     name: string;
@@ -236,8 +236,10 @@ function Header() {
                         <ThemeSwitch
                           sx={{ m: 1 }}
                           key={page.name}
-                          defaultChecked={isDarkMode}
-                          onClick={toggleTheme}
+                          checked={selectedTheme!==AppTheme.LIGHT_THEME}
+                          onClick={() => {
+                            changeTheme();
+                          }}
                         />
                       </MenuItem>
                     );
@@ -277,8 +279,10 @@ function Header() {
                         <ThemeSwitch
                           key={page.name}
                           sx={{ m: 1 }}
-                          defaultChecked={isDarkMode}
-                          onClick={toggleTheme}
+                          checked={selectedTheme!==AppTheme.LIGHT_THEME}
+                          onClick={() => {
+                            changeTheme();
+                          }}
                         />
                       </li>
                     );

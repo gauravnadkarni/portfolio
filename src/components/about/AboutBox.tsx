@@ -131,7 +131,6 @@ const AboutBox: React.FC<AboutBoxProps> = (props) => {
       }
     } else {
       if (!isAnySkillComponentVisible) {
-        console.log("clearing set interval");
         clearInterval(intervalRef.current);
         intervalRef.current = null;
         setSkillState(initialState);

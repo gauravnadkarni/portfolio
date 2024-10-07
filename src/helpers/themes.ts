@@ -1,9 +1,14 @@
 import { createTheme, Theme } from "@mui/material";
 
-export const lightTheme = createTheme({
+export enum AppTheme {
+  LIGHT_THEME = 'light',
+  DARK_THEME = 'dark',
+} 
+
+const lightTheme = createTheme({
   cssVariables: true,
   palette: {
-    mode: "light",
+    mode: AppTheme.LIGHT_THEME,
     primary: {
       main: "#1976d2",
     },
@@ -18,10 +23,10 @@ export const lightTheme = createTheme({
   },
 });
 
-export const darkTheme: Theme = createTheme({
+const darkTheme: Theme = createTheme({
   cssVariables: true,
   palette: {
-    mode: "dark",
+    mode: AppTheme.DARK_THEME,
     primary: {
       main: "#90caf9",
     },
@@ -35,3 +40,10 @@ export const darkTheme: Theme = createTheme({
     },
   },
 });
+
+export const themes: {
+  [key in AppTheme]:Theme
+}  = {
+  [AppTheme.LIGHT_THEME]: lightTheme,
+  [AppTheme.DARK_THEME]: darkTheme,
+}
